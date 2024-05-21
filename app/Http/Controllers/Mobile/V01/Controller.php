@@ -16,7 +16,7 @@ class Controller extends BaseController
     protected $model;
     protected $resource;
     protected $request;
-    protected $fields = [];
+    protected array $fields = [];
 
     public function __construct()
     {
@@ -153,12 +153,25 @@ class Controller extends BaseController
 		return $this->returnResults();
 	}
 
+    public function getTimestamp(): string
+    {
+        return round(microtime(true) * 1000);
+    }
+
+    public function getHeader(): array
+    {
+        $headers = [];
+        $headers['serverTimestamp'] = $this->getTimestamp();
+        $headers['statusCode'] = $this->getCode();
+        $headers['message'] = __($this->getMessage()) ?? 'OK';
+        return $headers;
+    }
+
 	protected function returnResults($httpHeaderStatusCode = 200): JsonResponse
 	{
 		$results = [];
-		$results['code'] = $this->getCode();
-		$results['message'] = __($this->getMessage()) ?? 'OK';
-		$results['data'] = !empty($this->getResult()) ? $this->getResult() : null;
+		$results['header'] = $this->getHeader() ?? null;
+		$results['body'] = !empty($this->getResult()) ? $this->getResult() : null;
 		$results['errors'] = $this->getErrors();
 		return response()->json($results, $httpHeaderStatusCode);
 	}

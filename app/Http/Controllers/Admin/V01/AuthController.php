@@ -1,18 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Mobile\V01;
+namespace App\Http\Controllers\Admin\V01;
 
 use App\Constants\Enum\StatusCodeEnum;
+use App\Constants\Enum\UserRoleEnum;
 use App\Http\Requests\Mobile\V01\Auth\LoginRequest;
-use App\Http\Requests\Mobile\V01\Auth\RegisterRequest;
 use App\Http\Resources\Mobile\UserRegisterResource;
 use App\Models\User;
 use App\Service\UserAuthService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+
     private UserAuthService $UserAuthService;
 
     public function __construct(UserAuthService $UserAuthService)
@@ -21,36 +23,23 @@ class AuthController extends Controller
     }
     private function _createToken ($user,$role):void
     {
-            $this->setResult('token', $this->UserAuthService->generateUserToken($user,$role));
-            $this->setResult('refresh_token', $this->UserAuthService->generateUserRefreshToken($user,$role));
-    }
-
-    public function register(RegisterRequest $request): JsonResponse
-    {
-        $user = User::where('email', $request->getEmail())->first();
-        if (!empty($user)) {
-            return $this->returnError(__('Email Already Registered.'), StatusCodeEnum::CONFLICT);
-        }
-
-        $user = $this->UserAuthService->register($request);
-        $this->setCode(StatusCodeEnum::OK);
-        $this->setMessage('Registered in successfully');
-        $this->setResult('user', new UserRegisterResource($user));
-        $this->_createToken($user,'mobile');
-        return $this->returnResults();
+        $this->setResult('token', $this->UserAuthService->generateUserToken($user,$role));
+        $this->setResult('refresh_token', $this->UserAuthService->generateUserRefreshToken($user,$role));
     }
 
     public function login(LoginRequest $request): JsonResponse
     {
-        $user = User::where('email', $request->getEmail())->first();
+        $user = User::where('email', $request->getEmail())
+            ->Where('role',UserRoleEnum::ADMIN)
+            ->first();
         if (! $user || ! Hash::check($request->getPassword(), $user->password)) {
             return $this->returnError(__('The provided credentials are incorrect.'),StatusCodeEnum::UNAUTHORIZED);
         }
 
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Login successfully');
-        $this->setResult('user', new UserRegisterResource($user));
-        $this->_createToken($user,'mobile');
+        $this->setResult('admin', new UserRegisterResource($user));
+        $this->_createToken($user,"admin");
         return $this->returnResults();
     }
 
@@ -59,11 +48,9 @@ class AuthController extends Controller
         $user = auth()->user();
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Refresh token successfully');
-        $this->_createToken($user,'mobile');
+        $this->_createToken($user,"admin");
         return $this->returnResults();
     }
-
-
 
     public function logout(): JsonResponse
     {
@@ -72,5 +59,4 @@ class AuthController extends Controller
         $this->setMessage('Logged out successfully');
         return $this->returnResults();
     }
-
 }

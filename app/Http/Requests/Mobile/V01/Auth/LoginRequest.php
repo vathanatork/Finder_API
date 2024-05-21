@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Mobile\V01;
+namespace App\Http\Requests\Mobile\V01\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
 
     /**
@@ -15,16 +15,11 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required'
+            'email'=>'required|email',
+            'password'=>'required'
         ];
     }
 
-    public function getName()
-    {
-        return request()->name;
-    }
     public function getEmail()
     {
         return request()->email;
