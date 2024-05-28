@@ -1,0 +1,227 @@
+[
+  {
+    "id": "1",
+    "code": "1",
+    "type": "Province",
+    "name_kh": "បន្ទាយមានជ័យ",
+    "name_en": "Banteay Meanchey",
+    "latitude": "13.6104668",
+    "longitude": "102.938285"
+  },
+  {
+    "id": "2",
+    "code": "2",
+    "type": "Province",
+    "name_kh": "បាត់ដំបង",
+    "name_en": "Battambang",
+    "latitude": "13.0940132",
+    "longitude": "103.1148209"
+  },
+  {
+    "id": "3",
+    "code": "3",
+    "type": "Province",
+    "name_kh": "កំពង់ចាម",
+    "name_en": "Kampong Cham",
+    "latitude": "11.9890214",
+    "longitude": "105.4163931"
+  },
+  {
+    "id": "4",
+    "code": "4",
+    "type": "Province",
+    "name_kh": "កំពង់ឆ្នាំង",
+    "name_en": "Kampong Chhnang",
+    "latitude": "12.270642",
+    "longitude": "104.6391741"
+  },
+  {
+    "id": "5",
+    "code": "5",
+    "type": "Province",
+    "name_kh": "កំពង់ស្ពឺ",
+    "name_en": "Kampong Speu",
+    "latitude": "11.5779094",
+    "longitude": "103.9529455"
+  },
+  {
+    "id": "6",
+    "code": "6",
+    "type": "Province",
+    "name_kh": "កំពង់ធំ",
+    "name_en": "Kampong Thom",
+    "latitude": "12.819641",
+    "longitude": "104.3032507"
+  },
+  {
+    "id": "7",
+    "code": "7",
+    "type": "Province",
+    "name_kh": "កំពត",
+    "name_en": "Kampot",
+    "latitude": "10.7889228",
+    "longitude": "103.992954"
+  },
+  {
+    "id": "8",
+    "code": "8",
+    "type": "Province",
+    "name_kh": "កណ្ដាល",
+    "name_en": "Kandal",
+    "latitude": "11.3954832",
+    "longitude": "104.6467627"
+  },
+  {
+    "id": "9",
+    "code": "9",
+    "type": "Province",
+    "name_kh": "កោះកុង",
+    "name_en": "Koh Kong",
+    "latitude": "11.617182",
+    "longitude": "102.980403"
+  },
+  {
+    "id": "10",
+    "code": "10",
+    "type": "Province",
+    "name_kh": "ក្រចេះ",
+    "name_en": "Kratie",
+    "latitude": "12.489735",
+    "longitude": "106.024967"
+  },
+  {
+    "id": "11",
+    "code": "11",
+    "type": "Province",
+    "name_kh": "មណ្ឌលគិរី",
+    "name_en": "Mondul Kiri",
+    "latitude": "12.7399958",
+    "longitude": "106.3116506"
+  },
+  {
+    "id": "12",
+    "code": "12",
+    "type": "Capital",
+    "name_kh": "រាជធានីភ្នំពេញ",
+    "name_en": "Phnom Penh",
+    "latitude": "11.544873",
+    "longitude": "104.892167"
+  },
+  {
+    "id": "13",
+    "code": "13",
+    "type": "Province",
+    "name_kh": "ព្រះវិហារ",
+    "name_en": "Preah Vihear",
+    "latitude": "13.814876",
+    "longitude": "104.473999"
+  },
+  {
+    "id": "14",
+    "code": "14",
+    "type": "Province",
+    "name_kh": "ព្រៃវែង",
+    "name_en": "Prey Veng",
+    "latitude": "11.484023",
+    "longitude": "105.324090"
+  },
+  {
+    "id": "15",
+    "code": "15",
+    "type": "Province",
+    "name_kh": "ពោធិ៍សាត់",
+    "name_en": "Pursat",
+    "latitude": "12.533333",
+    "longitude": "103.216667"
+  },
+  {
+    "id": "16",
+    "code": "16",
+    "type": "Province",
+    "name_kh": "រតនគិរី",
+    "name_en": "Ratanak Kiri",
+    "latitude": "13.997222",
+    "longitude": "106.499722"
+  },
+  {
+    "id": "17",
+    "code": "17",
+    "type": "Province",
+    "name_kh": "សៀមរាប",
+    "name_en": "Siemreap",
+    "latitude": "13.361143",
+    "longitude": "103.780268"
+  },
+  {
+    "id": "18",
+    "code": "18",
+    "type": "Province",
+    "name_kh": "ព្រះសីហនុ",
+    "name_en": "Preah Sihanouk",
+    "latitude": "10.909319",
+    "longitude": "103.329583"
+  },
+  {
+    "id": "19",
+    "code": "19",
+    "type": "Province",
+    "name_kh": "ស្ទឹងត្រែង",
+    "name_en": "Stung Treng",
+    "latitude": "13.653026",
+    "longitude": "105.904689"
+  },
+  {
+    "id": "20",
+    "code": "20",
+    "type": "Province",
+    "name_kh": "ស្វាយរៀង",
+    "name_en": "Svay Rieng",
+    "latitude": "11.090255",
+    "longitude": "105.803935"
+  },
+  {
+    "id": "21",
+    "code": "21",
+    "type": "Province",
+    "name_kh": "តាកែវ",
+    "name_en": "Takeo",
+    "latitude": "10.990889",
+    "longitude": "104.784167"
+  },
+  {
+    "id": "22",
+    "code": "22",
+    "type": "Province",
+    "name_kh": "ឧត្ដរមានជ័យ",
+    "name_en": "Oddar Meanchey",
+    "latitude": "14.155841",
+    "longitude": "103.446527"
+  },
+  {
+    "id": "23",
+    "code": "23",
+    "type": "Province",
+    "name_kh": "កែប",
+    "name_en": "Kep",
+    "latitude": "10.482834",
+    "longitude": "104.316571"
+  },
+  {
+    "id": "24",
+    "code": "24",
+    "type": "Province",
+    "name_kh": "ប៉ៃលិន",
+    "name_en": "Pailin",
+    "latitude": "12.848333",
+    "longitude": "102.459722"
+  },
+  {
+    "id": "25",
+    "code": "25",
+    "type": "Province",
+    "name_kh": "ត្បូងឃ្មុំ",
+    "name_en": "Tboung Khmum",
+    "latitude": "11.911717",
+    "longitude": "105.658669"
+  }
+]

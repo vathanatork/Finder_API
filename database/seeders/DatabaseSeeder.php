@@ -13,13 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            UsersTableSeeder::class,
+            AdrProvinceSeeder::class,
+            AdrDistrictSeeder::class,
+            AdrCommuneSeeder::class,
+            AdrVillageSeeder::class,
+        ]);
 
-         \App\Models\User::factory()->create([
-             'name' => 'admin',
-             'email' => 'admin@gmail.com',
-             'password'=>Hash::make('12345678'),
-             'role'=>'admin'
-         ]);
     }
 }
