@@ -1,0 +1,1626 @@
+[
+  {
+    "id": "1",
+    "code": "102",
+    "type": "District",
+    "name_kh": "មង្គលបូរី",
+    "name_en": "Mongkol Borei",
+    "province_id": 1
+  },
+  {
+    "id": "2",
+    "code": "103",
+    "type": "District",
+    "name_kh": "ភ្នំស្រុក",
+    "name_en": "Phnum Srok",
+    "province_id": 1
+  },
+  {
+    "id": "3",
+    "code": "104",
+    "type": "District",
+    "name_kh": "ព្រះនេត្រព្រះ",
+    "name_en": "Preah Netr Preah",
+    "province_id": 1
+  },
+  {
+    "id": "4",
+    "code": "105",
+    "type": "District",
+    "name_kh": "អូរជ្រៅ",
+    "name_en": "Ou Chrov",
+    "province_id": 1
+  },
+  {
+    "id": "5",
+    "code": "106",
+    "type": "Municipality",
+    "name_kh": "សិរីសោភ័ណ",
+    "name_en": "Serei Saophoan",
+    "province_id": 1
+  },
+  {
+    "id": "6",
+    "code": "107",
+    "type": "District",
+    "name_kh": "ថ្មពួក",
+    "name_en": "Thma Puok",
+    "province_id": 1
+  },
+  {
+    "id": "7",
+    "code": "108",
+    "type": "District",
+    "name_kh": "ស្វាយចេក",
+    "name_en": "Svay Chek",
+    "province_id": 1
+  },
+  {
+    "id": "8",
+    "code": "109",
+    "type": "District",
+    "name_kh": "ម៉ាឡៃ",
+    "name_en": "Malai",
+    "province_id": 1
+  },
+  {
+    "id": "9",
+    "code": "110",
+    "type": "Municipality",
+    "name_kh": "ប៉ោយប៉ែត",
+    "name_en": "Paoy Paet",
+    "province_id": 1
+  },
+  {
+    "id": "10",
+    "code": "201",
+    "type": "District",
+    "name_kh": "បាណន់",
+    "name_en": "Banan",
+    "province_id": 2
+  },
+  {
+    "id": "11",
+    "code": "202",
+    "type": "District",
+    "name_kh": "ថ្មគោល",
+    "name_en": "Thma Koul",
+    "province_id": 2
+  },
+  {
+    "id": "12",
+    "code": "203",
+    "type": "Municipality",
+    "name_kh": "បាត់ដំបង",
+    "name_en": "Battambang",
+    "province_id": 2
+  },
+  {
+    "id": "13",
+    "code": "204",
+    "type": "District",
+    "name_kh": "បវេល",
+    "name_en": "Bavel",
+    "province_id": 2
+  },
+  {
+    "id": "14",
+    "code": "205",
+    "type": "District",
+    "name_kh": "ឯកភ្នំ",
+    "name_en": "Aek Phnum",
+    "province_id": 2
+  },
+  {
+    "id": "15",
+    "code": "206",
+    "type": "District",
+    "name_kh": "មោងឫស្សី",
+    "name_en": "Moung Ruessei",
+    "province_id": 2
+  },
+  {
+    "id": "16",
+    "code": "207",
+    "type": "District",
+    "name_kh": "រតនមណ្ឌល",
+    "name_en": "Rotonak Mondol",
+    "province_id": 2
+  },
+  {
+    "id": "17",
+    "code": "208",
+    "type": "District",
+    "name_kh": "សង្កែ",
+    "name_en": "Sangkae",
+    "province_id": 2
+  },
+  {
+    "id": "18",
+    "code": "209",
+    "type": "District",
+    "name_kh": "សំឡូត",
+    "name_en": "Samlout",
+    "province_id": 2
+  },
+  {
+    "id": "19",
+    "code": "210",
+    "type": "District",
+    "name_kh": "សំពៅលូន",
+    "name_en": "Sampov Lun",
+    "province_id": 2
+  },
+  {
+    "id": "20",
+    "code": "211",
+    "type": "District",
+    "name_kh": "ភ្នំព្រឹក",
+    "name_en": "Phnum Proek",
+    "province_id": 2
+  },
+  {
+    "id": "21",
+    "code": "212",
+    "type": "District",
+    "name_kh": "កំរៀង",
+    "name_en": "Kamrieng",
+    "province_id": 2
+  },
+  {
+    "id": "22",
+    "code": "213",
+    "type": "District",
+    "name_kh": "គាស់ក្រឡ",
+    "name_en": "Koas Krala",
+    "province_id": 2
+  },
+  {
+    "id": "23",
+    "code": "214",
+    "type": "District",
+    "name_kh": "រុក្ខគិរី",
+    "name_en": "Rukh Kiri",
+    "province_id": 2
+  },
+  {
+    "id": "24",
+    "code": "301",
+    "type": "District",
+    "name_kh": "បាធាយ",
+    "name_en": "Batheay",
+    "province_id": 3
+  },
+  {
+    "id": "25",
+    "code": "302",
+    "type": "District",
+    "name_kh": "ចំការលើ",
+    "name_en": "Chamkar Leu",
+    "province_id": 3
+  },
+  {
+    "id": "26",
+    "code": "303",
+    "type": "District",
+    "name_kh": "ជើងព្រៃ",
+    "name_en": "Cheung Prey",
+    "province_id": 3
+  },
+  {
+    "id": "27",
+    "code": "305",
+    "type": "Municipality",
+    "name_kh": "កំពង់ចាម",
+    "name_en": "Kampong Cham",
+    "province_id": 3
+  },
+  {
+    "id": "28",
+    "code": "306",
+    "type": "District",
+    "name_kh": "កំពង់សៀម",
+    "name_en": "Kampong Siem",
+    "province_id": 3
+  },
+  {
+    "id": "29",
+    "code": "307",
+    "type": "District",
+    "name_kh": "កងមាស",
+    "name_en": "Kang Meas",
+    "province_id": 3
+  },
+  {
+    "id": "30",
+    "code": "308",
+    "type": "District",
+    "name_kh": "កោះសូទិន",
+    "name_en": "Kaoh Soutin",
+    "province_id": 3
+  },
+  {
+    "id": "31",
+    "code": "313",
+    "type": "District",
+    "name_kh": "ព្រៃឈរ",
+    "name_en": "Prey Chhor",
+    "province_id": 3
+  },
+  {
+    "id": "32",
+    "code": "314",
+    "type": "District",
+    "name_kh": "ស្រីសន្ធរ",
+    "name_en": "Srei Santhor",
+    "province_id": 3
+  },
+  {
+    "id": "33",
+    "code": "315",
+    "type": "District",
+    "name_kh": "ស្ទឹងត្រង់",
+    "name_en": "Stueng Trang",
+    "province_id": 3
+  },
+  {
+    "id": "34",
+    "code": "401",
+    "type": "District",
+    "name_kh": "បរិបូណ៌",
+    "name_en": "Baribour",
+    "province_id": 4
+  },
+  {
+    "id": "35",
+    "code": "402",
+    "type": "District",
+    "name_kh": "ជលគីរី",
+    "name_en": "Chol Kiri",
+    "province_id": 4
+  },
+  {
+    "id": "36",
+    "code": "403",
+    "type": "Municipality",
+    "name_kh": "កំពង់ឆ្នាំង",
+    "name_en": "Kampong Chhnang",
+    "province_id": 4
+  },
+  {
+    "id": "37",
+    "code": "404",
+    "type": "District",
+    "name_kh": "កំពង់លែង",
+    "name_en": "Kampong Leaeng",
+    "province_id": 4
+  },
+  {
+    "id": "38",
+    "code": "405",
+    "type": "District",
+    "name_kh": "កំពង់ត្រឡាច",
+    "name_en": "Kampong Tralach",
+    "province_id": 4
+  },
+  {
+    "id": "39",
+    "code": "406",
+    "type": "District",
+    "name_kh": "រលាប្អៀរ",
+    "name_en": "Rolea B'ier",
+    "province_id": 4
+  },
+  {
+    "id": "40",
+    "code": "407",
+    "type": "District",
+    "name_kh": "សាមគ្គីមានជ័យ",
+    "name_en": "Sameakki Mean Chey",
+    "province_id": 4
+  },
+  {
+    "id": "41",
+    "code": "408",
+    "type": "District",
+    "name_kh": "ទឹកផុស",
+    "name_en": "Tuek Phos",
+    "province_id": 4
+  },
+  {
+    "id": "42",
+    "code": "501",
+    "type": "District",
+    "name_kh": "បរសេដ្ឋ",
+    "name_en": "Basedth",
+    "province_id": 5
+  },
+  {
+    "id": "43",
+    "code": "502",
+    "type": "Municipality",
+    "name_kh": "ច្បារមន",
+    "name_en": "Chbar Mon",
+    "province_id": 5
+  },
+  {
+    "id": "44",
+    "code": "503",
+    "type": "District",
+    "name_kh": "គងពិសី",
+    "name_en": "Kong Pisei",
+    "province_id": 5
+  },
+  {
+    "id": "45",
+    "code": "504",
+    "type": "District",
+    "name_kh": "ឱរ៉ាល់",
+    "name_en": "Aoral",
+    "province_id": 5
+  },
+  {
+    "id": "46",
+    "code": "505",
+    "type": "District",
+    "name_kh": "ឧដុង្គ",
+    "name_en": "Odongk",
+    "province_id": 5
+  },
+  {
+    "id": "47",
+    "code": "506",
+    "type": "District",
+    "name_kh": "ភ្នំស្រួច",
+    "name_en": "Phnum Sruoch",
+    "province_id": 5
+  },
+  {
+    "id": "48",
+    "code": "507",
+    "type": "District",
+    "name_kh": "សំរោងទង",
+    "name_en": "Samraong Tong",
+    "province_id": 5
+  },
+  {
+    "id": "49",
+    "code": "508",
+    "type": "District",
+    "name_kh": "ថ្ពង",
+    "name_en": "Thpong",
+    "province_id": 5
+  },
+  {
+    "id": "50",
+    "code": "601",
+    "type": "District",
+    "name_kh": "បារាយណ៍",
+    "name_en": "Baray",
+    "province_id": 6
+  },
+  {
+    "id": "51",
+    "code": "602",
+    "type": "District",
+    "name_kh": "កំពង់ស្វាយ",
+    "name_en": "Kampong Svay",
+    "province_id": 6
+  },
+  {
+    "id": "52",
+    "code": "603",
+    "type": "Municipality",
+    "name_kh": "ស្ទឹងសែន",
+    "name_en": "Stueng Saen",
+    "province_id": 6
+  },
+  {
+    "id": "53",
+    "code": "604",
+    "type": "District",
+    "name_kh": "ប្រាសាទបល្ល័ង្គ",
+    "name_en": "Prasat Ballangk",
+    "province_id": 6
+  },
+  {
+    "id": "54",
+    "code": "605",
+    "type": "District",
+    "name_kh": "ប្រាសាទសំបូរ",
+    "name_en": "Prasat Sambour",
+    "province_id": 6
+  },
+  {
+    "id": "55",
+    "code": "606",
+    "type": "District",
+    "name_kh": "សណ្ដាន់",
+    "name_en": "Sandan",
+    "province_id": 6
+  },
+  {
+    "id": "56",
+    "code": "607",
+    "type": "District",
+    "name_kh": "សន្ទុក",
+    "name_en": "Santuk",
+    "province_id": 6
+  },
+  {
+    "id": "57",
+    "code": "608",
+    "type": "District",
+    "name_kh": "ស្ទោង",
+    "name_en": "Stoung",
+    "province_id": 6
+  },
+  {
+    "id": "58",
+    "code": "609",
+    "type": "District",
+    "name_kh": "តាំងគោក",
+    "name_en": "Taing Kouk",
+    "province_id": 6
+  },
+  {
+    "id": "59",
+    "code": "701",
+    "type": "District",
+    "name_kh": "អង្គរជ័យ",
+    "name_en": "Angkor Chey",
+    "province_id": 7
+  },
+  {
+    "id": "60",
+    "code": "702",
+    "type": "District",
+    "name_kh": "បន្ទាយមាស",
+    "name_en": "Banteay Meas",
+    "province_id": 7
+  },
+  {
+    "id": "61",
+    "code": "703",
+    "type": "District",
+    "name_kh": "ឈូក",
+    "name_en": "Chhuk",
+    "province_id": 7
+  },
+  {
+    "id": "62",
+    "code": "704",
+    "type": "District",
+    "name_kh": "ជុំគិរី",
+    "name_en": "Chum Kiri",
+    "province_id": 7
+  },
+  {
+    "id": "63",
+    "code": "705",
+    "type": "District",
+    "name_kh": "ដងទង់",
+    "name_en": "Dang Tong",
+    "province_id": 7
+  },
+  {
+    "id": "64",
+    "code": "706",
+    "type": "District",
+    "name_kh": "កំពង់ត្រាច",
+    "name_en": "Kampong Trach",
+    "province_id": 7
+  },
+  {
+    "id": "65",
+    "code": "707",
+    "type": "District",
+    "name_kh": "ទឹកឈូ",
+    "name_en": "Tuek Chhou",
+    "province_id": 7
+  },
+  {
+    "id": "66",
+    "code": "708",
+    "type": "Municipality",
+    "name_kh": "កំពត",
+    "name_en": "Kampot",
+    "province_id": 7
+  },
+  {
+    "id": "67",
+    "code": "801",
+    "type": "District",
+    "name_kh": "កណ្ដាលស្ទឹង",
+    "name_en": "Kandal Stueng",
+    "province_id": 8
+  },
+  {
+    "id": "68",
+    "code": "802",
+    "type": "District",
+    "name_kh": "កៀនស្វាយ",
+    "name_en": "Kien Svay",
+    "province_id": 8
+  },
+  {
+    "id": "69",
+    "code": "803",
+    "type": "District",
+    "name_kh": "ខ្សាច់កណ្ដាល",
+    "name_en": "Khsach Kandal",
+    "province_id": 8
+  },
+  {
+    "id": "70",
+    "code": "804",
+    "type": "District",
+    "name_kh": "កោះធំ",
+    "name_en": "Kaoh Thum",
+    "province_id": 8
+  },
+  {
+    "id": "71",
+    "code": "805",
+    "type": "District",
+    "name_kh": "លើកដែក",
+    "name_en": "Leuk Daek",
+    "province_id": 8
+  },
+  {
+    "id": "72",
+    "code": "806",
+    "type": "District",
+    "name_kh": "ល្វាឯម",
+    "name_en": "Lvea Aem",
+    "province_id": 8
+  },
+  {
+    "id": "73",
+    "code": "807",
+    "type": "District",
+    "name_kh": "មុខកំពូល",
+    "name_en": "Mukh Kampul",
+    "province_id": 8
+  },
+  {
+    "id": "74",
+    "code": "808",
+    "type": "District",
+    "name_kh": "អង្គស្នួល",
+    "name_en": "Angk Snuol",
+    "province_id": 8
+  },
+  {
+    "id": "75",
+    "code": "809",
+    "type": "District",
+    "name_kh": "ពញាឮ",
+    "name_en": "Ponhea Lueu",
+    "province_id": 8
+  },
+  {
+    "id": "76",
+    "code": "810",
+    "type": "District",
+    "name_kh": "ស្អាង",
+    "name_en": "S'ang",
+    "province_id": 8
+  },
+  {
+    "id": "77",
+    "code": "811",
+    "type": "Municipality",
+    "name_kh": "តាខ្មៅ",
+    "name_en": "Ta Khmau",
+    "province_id": 8
+  },
+  {
+    "id": "78",
+    "code": "901",
+    "type": "District",
+    "name_kh": "បុទុមសាគរ",
+    "name_en": "Botum Sakor",
+    "province_id": 9
+  },
+  {
+    "id": "79",
+    "code": "902",
+    "type": "District",
+    "name_kh": "គិរីសាគរ",
+    "name_en": "Kiri Sakor",
+    "province_id": 9
+  },
+  {
+    "id": "80",
+    "code": "903",
+    "type": "District",
+    "name_kh": "កោះកុង",
+    "name_en": "Kaoh Kong",
+    "province_id": 9
+  },
+  {
+    "id": "81",
+    "code": "904",
+    "type": "Municipality",
+    "name_kh": "ខេមរភូមិន្ទ",
+    "name_en": "Khemara Phoumin",
+    "province_id": 9
+  },
+  {
+    "id": "82",
+    "code": "905",
+    "type": "District",
+    "name_kh": "មណ្ឌលសីមា",
+    "name_en": "Mondol Seima",
+    "province_id": 9
+  },
+  {
+    "id": "83",
+    "code": "906",
+    "type": "District",
+    "name_kh": "ស្រែ អំបិល",
+    "name_en": "Srae Ambel",
+    "province_id": 9
+  },
+  {
+    "id": "84",
+    "code": "907",
+    "type": "District",
+    "name_kh": "ថ្មបាំង",
+    "name_en": "Thma Bang",
+    "province_id": 9
+  },
+  {
+    "id": "85",
+    "code": "1001",
+    "type": "District",
+    "name_kh": "ឆ្លូង",
+    "name_en": "Chhloung",
+    "province_id": 10
+  },
+  {
+    "id": "86",
+    "code": "1002",
+    "type": "Municipality",
+    "name_kh": "ក្រចេះ",
+    "name_en": "Kracheh",
+    "province_id": 10
+  },
+  {
+    "id": "87",
+    "code": "1003",
+    "type": "District",
+    "name_kh": "ព្រែកប្រសព្វ",
+    "name_en": "Prek Prasab",
+    "province_id": 10
+  },
+  {
+    "id": "88",
+    "code": "1004",
+    "type": "District",
+    "name_kh": "សំបូរ",
+    "name_en": "Sambour",
+    "province_id": 10
+  },
+  {
+    "id": "89",
+    "code": "1005",
+    "type": "District",
+    "name_kh": "ស្នួល",
+    "name_en": "Snuol",
+    "province_id": 10
+  },
+  {
+    "id": "90",
+    "code": "1006",
+    "type": "District",
+    "name_kh": "ចិត្របុរី",
+    "name_en": "Chetr Borei",
+    "province_id": 10
+  },
+  {
+    "id": "91",
+    "code": "1101",
+    "type": "District",
+    "name_kh": "កែវសីមា",
+    "name_en": "Kaev Seima",
+    "province_id": 11
+  },
+  {
+    "id": "92",
+    "code": "1102",
+    "type": "District",
+    "name_kh": "កោះញែក",
+    "name_en": "Kaoh Nheaek",
+    "province_id": 11
+  },
+  {
+    "id": "93",
+    "code": "1103",
+    "type": "District",
+    "name_kh": "អូររាំង",
+    "name_en": "Ou Reang",
+    "province_id": 11
+  },
+  {
+    "id": "94",
+    "code": "1104",
+    "type": "District",
+    "name_kh": "ពេជ្រាដា",
+    "name_en": "Pech Chreada",
+    "province_id": 11
+  },
+  {
+    "id": "95",
+    "code": "1105",
+    "type": "Municipality",
+    "name_kh": "សែនមនោរម្យ",
+    "name_en": "Saen Monourom",
+    "province_id": 11
+  },
+  {
+    "id": "96",
+    "code": "1201",
+    "type": "Khan",
+    "name_kh": "ចំការមន",
+    "name_en": "Chamkar Mon",
+    "province_id": 12
+  },
+  {
+    "id": "97",
+    "code": "1202",
+    "type": "Khan",
+    "name_kh": "ដូនពេញ",
+    "name_en": "Doun Penh",
+    "province_id": 12
+  },
+  {
+    "id": "98",
+    "code": "1203",
+    "type": "Khan",
+    "name_kh": "៧មករា",
+    "name_en": "Prampir Meakkakra",
+    "province_id": 12
+  },
+  {
+    "id": "99",
+    "code": "1204",
+    "type": "Khan",
+    "name_kh": "ទួលគោក",
+    "name_en": "Tuol Kouk",
+    "province_id": 12
+  },
+  {
+    "id": "100",
+    "code": "1205",
+    "type": "Khan",
+    "name_kh": "ដង្កោ",
+    "name_en": "Dangkao",
+    "province_id": 12
+  },
+  {
+    "id": "101",
+    "code": "1206",
+    "type": "Khan",
+    "name_kh": "មានជ័យ",
+    "name_en": "Mean Chey",
+    "province_id": 12
+  },
+  {
+    "id": "102",
+    "code": "1207",
+    "type": "Khan",
+    "name_kh": "ឫស្សីកែវ",
+    "name_en": "Russey Keo",
+    "province_id": 12
+  },
+  {
+    "id": "103",
+    "code": "1208",
+    "type": "Khan",
+    "name_kh": "សែនសុខ",
+    "name_en": "Saensokh",
+    "province_id": 12
+  },
+  {
+    "id": "104",
+    "code": "1209",
+    "type": "Khan",
+    "name_kh": "ពោធិ៍សែនជ័យ",
+    "name_en": "Pur SenChey",
+    "province_id": 12
+  },
+  {
+    "id": "105",
+    "code": "1210",
+    "type": "Khan",
+    "name_kh": "ជ្រោយចង្វារ",
+    "name_en": "Chraoy Chongvar",
+    "province_id": 12
+  },
+  {
+    "id": "106",
+    "code": "1211",
+    "type": "Khan",
+    "name_kh": "ព្រែកព្នៅ",
+    "name_en": "Praek Pnov",
+    "province_id": 12
+  },
+  {
+    "id": "107",
+    "code": "1212",
+    "type": "Khan",
+    "name_kh": "ច្បារអំពៅ",
+    "name_en": "Chbar Ampov",
+    "province_id": 12
+  },
+  {
+    "id": "108",
+    "code": "1213",
+    "type": "Khan",
+    "name_kh": "បឹងកេងកង",
+    "name_en": "Boeng Keng Kang",
+    "province_id": 12
+  },
+  {
+    "id": "109",
+    "code": "1214",
+    "type": "Khan",
+    "name_kh": "កំបូល",
+    "name_en": "Kamboul",
+    "province_id": 12
+  },
+  {
+    "id": "110",
+    "code": "1301",
+    "type": "District",
+    "name_kh": "ជ័យសែន",
+    "name_en": "Chey Saen",
+    "province_id": 13
+  },
+  {
+    "id": "111",
+    "code": "1302",
+    "type": "District",
+    "name_kh": "ឆែប",
+    "name_en": "Chhaeb",
+    "province_id": 13
+  },
+  {
+    "id": "112",
+    "code": "1303",
+    "type": "District",
+    "name_kh": "ជាំក្សាន្ដ",
+    "name_en": "Choam Ksant",
+    "province_id": 13
+  },
+  {
+    "id": "113",
+    "code": "1304",
+    "type": "District",
+    "name_kh": "គូលែន",
+    "name_en": "Kuleaen",
+    "province_id": 13
+  },
+  {
+    "id": "114",
+    "code": "1305",
+    "type": "District",
+    "name_kh": "រវៀង",
+    "name_en": "Rovieng",
+    "province_id": 13
+  },
+  {
+    "id": "115",
+    "code": "1306",
+    "type": "District",
+    "name_kh": "សង្គមថ្មី",
+    "name_en": "Sangkum Thmei",
+    "province_id": 13
+  },
+  {
+    "id": "116",
+    "code": "1307",
+    "type": "District",
+    "name_kh": "ត្បែងមានជ័យ",
+    "name_en": "Tbaeng Mean Chey",
+    "province_id": 13
+  },
+  {
+    "id": "117",
+    "code": "1308",
+    "type": "Municipality",
+    "name_kh": "ព្រះវិហារ",
+    "name_en": "Preah Vihear",
+    "province_id": 13
+  },
+  {
+    "id": "118",
+    "code": "1401",
+    "type": "District",
+    "name_kh": "បាភ្នំ",
+    "name_en": "Ba Phnum",
+    "province_id": 14
+  },
+  {
+    "id": "119",
+    "code": "1402",
+    "type": "District",
+    "name_kh": "កំចាយមារ",
+    "name_en": "Kamchay Mear",
+    "province_id": 14
+  },
+  {
+    "id": "120",
+    "code": "1403",
+    "type": "District",
+    "name_kh": "កំពង់ត្របែក",
+    "name_en": "Kampong Trabaek",
+    "province_id": 14
+  },
+  {
+    "id": "121",
+    "code": "1404",
+    "type": "District",
+    "name_kh": "កញ្ជ្រៀច",
+    "name_en": "Kanhchriech",
+    "province_id": 14
+  },
+  {
+    "id": "122",
+    "code": "1405",
+    "type": "District",
+    "name_kh": "មេសាង",
+    "name_en": "Me Sang",
+    "province_id": 14
+  },
+  {
+    "id": "123",
+    "code": "1406",
+    "type": "District",
+    "name_kh": "ពាមជរ",
+    "name_en": "Peam Chor",
+    "province_id": 14
+  },
+  {
+    "id": "124",
+    "code": "1407",
+    "type": "District",
+    "name_kh": "ពាមរក៍",
+    "name_en": "Peam Ro",
+    "province_id": 14
+  },
+  {
+    "id": "125",
+    "code": "1408",
+    "type": "District",
+    "name_kh": "ពារាំង",
+    "name_en": "Pea Reang",
+    "province_id": 14
+  },
+  {
+    "id": "126",
+    "code": "1409",
+    "type": "District",
+    "name_kh": "ព្រះស្ដេច",
+    "name_en": "Preah Sdach",
+    "province_id": 14
+  },
+  {
+    "id": "127",
+    "code": "1410",
+    "type": "Municipality",
+    "name_kh": "ព្រៃវែង",
+    "name_en": "Prey Veng",
+    "province_id": 14
+  },
+  {
+    "id": "128",
+    "code": "1411",
+    "type": "District",
+    "name_kh": "ពោធិ៍រៀង",
+    "name_en": "Pur Rieng",
+    "province_id": 14
+  },
+  {
+    "id": "129",
+    "code": "1412",
+    "type": "District",
+    "name_kh": "ស៊ីធរកណ្ដាល",
+    "name_en": "Sithor Kandal",
+    "province_id": 14
+  },
+  {
+    "id": "130",
+    "code": "1413",
+    "type": "District",
+    "name_kh": "ស្វាយអន្ទរ",
+    "name_en": "Svay Antor",
+    "province_id": 14
+  },
+  {
+    "id": "131",
+    "code": "1501",
+    "type": "District",
+    "name_kh": "បាកាន",
+    "name_en": "Bakan",
+    "province_id": 15
+  },
+  {
+    "id": "132",
+    "code": "1502",
+    "type": "District",
+    "name_kh": "កណ្ដៀង",
+    "name_en": "Kandieng",
+    "province_id": 15
+  },
+  {
+    "id": "133",
+    "code": "1503",
+    "type": "District",
+    "name_kh": "ក្រគរ",
+    "name_en": "Krakor",
+    "province_id": 15
+  },
+  {
+    "id": "134",
+    "code": "1504",
+    "type": "District",
+    "name_kh": "ភ្នំក្រវ៉ាញ",
+    "name_en": "Phnum Kravanh",
+    "province_id": 15
+  },
+  {
+    "id": "135",
+    "code": "1505",
+    "type": "Municipality",
+    "name_kh": "ពោធិ៍សាត់",
+    "name_en": "Pursat",
+    "province_id": 15
+  },
+  {
+    "id": "136",
+    "code": "1506",
+    "type": "District",
+    "name_kh": "វាលវែង",
+    "name_en": "Veal Veaeng",
+    "province_id": 15
+  },
+  {
+    "id": "137",
+    "code": "1507",
+    "type": "District",
+    "name_kh": "តាលោសែនជ័យ",
+    "name_en": "Ta Lou Senchey",
+    "province_id": 15
+  },
+  {
+    "id": "138",
+    "code": "1601",
+    "type": "District",
+    "name_kh": "អណ្ដូងមាស",
+    "name_en": "Andoung Meas",
+    "province_id": 16
+  },
+  {
+    "id": "139",
+    "code": "1602",
+    "type": "Municipality",
+    "name_kh": "បានលុង",
+    "name_en": "Ban Lung",
+    "province_id": 16
+  },
+  {
+    "id": "140",
+    "code": "1603",
+    "type": "District",
+    "name_kh": "បរកែវ",
+    "name_en": "Bar Kaev",
+    "province_id": 16
+  },
+  {
+    "id": "141",
+    "code": "1604",
+    "type": "District",
+    "name_kh": "កូនមុំ",
+    "name_en": "Koun Mom",
+    "province_id": 16
+  },
+  {
+    "id": "142",
+    "code": "1605",
+    "type": "District",
+    "name_kh": "លំផាត់",
+    "name_en": "Lumphat",
+    "province_id": 16
+  },
+  {
+    "id": "143",
+    "code": "1606",
+    "type": "District",
+    "name_kh": "អូរជុំ",
+    "name_en": "Ou Chum",
+    "province_id": 16
+  },
+  {
+    "id": "144",
+    "code": "1607",
+    "type": "District",
+    "name_kh": "អូរយ៉ាដាវ",
+    "name_en": "Ou Ya Dav",
+    "province_id": 16
+  },
+  {
+    "id": "145",
+    "code": "1608",
+    "type": "District",
+    "name_kh": "តាវែង",
+    "name_en": "Ta Veaeng",
+    "province_id": 16
+  },
+  {
+    "id": "146",
+    "code": "1609",
+    "type": "District",
+    "name_kh": "វើនសៃ",
+    "name_en": "Veun Sai",
+    "province_id": 16
+  },
+  {
+    "id": "147",
+    "code": "1701",
+    "type": "District",
+    "name_kh": "អង្គរជុំ",
+    "name_en": "Angkor Chum",
+    "province_id": 17
+  },
+  {
+    "id": "148",
+    "code": "1702",
+    "type": "District",
+    "name_kh": "អង្គរធំ",
+    "name_en": "Angkor Thum",
+    "province_id": 17
+  },
+  {
+    "id": "149",
+    "code": "1703",
+    "type": "District",
+    "name_kh": "បន្ទាយស្រី",
+    "name_en": "Banteay Srei",
+    "province_id": 17
+  },
+  {
+    "id": "150",
+    "code": "1704",
+    "type": "District",
+    "name_kh": "ជីក្រែង",
+    "name_en": "Chi Kraeng",
+    "province_id": 17
+  },
+  {
+    "id": "151",
+    "code": "1706",
+    "type": "District",
+    "name_kh": "ក្រឡាញ់",
+    "name_en": "Kralanh",
+    "province_id": 17
+  },
+  {
+    "id": "152",
+    "code": "1707",
+    "type": "District",
+    "name_kh": "ពួក",
+    "name_en": "Puok",
+    "province_id": 17
+  },
+  {
+    "id": "153",
+    "code": "1709",
+    "type": "District",
+    "name_kh": "ប្រាសាទបាគង",
+    "name_en": "Prasat Bakong",
+    "province_id": 17
+  },
+  {
+    "id": "154",
+    "code": "1710",
+    "type": "Municipality",
+    "name_kh": "សៀមរាប",
+    "name_en": "Siem Reap",
+    "province_id": 17
+  },
+  {
+    "id": "155",
+    "code": "1711",
+    "type": "District",
+    "name_kh": "សូទ្រនិគម",
+    "name_en": "Soutr Nikom",
+    "province_id": 17
+  },
+  {
+    "id": "156",
+    "code": "1712",
+    "type": "District",
+    "name_kh": "ស្រីស្នំ",
+    "name_en": "Srei Snam",
+    "province_id": 17
+  },
+  {
+    "id": "157",
+    "code": "1713",
+    "type": "District",
+    "name_kh": "ស្វាយលើ",
+    "name_en": "Svay Leu",
+    "province_id": 17
+  },
+  {
+    "id": "158",
+    "code": "1714",
+    "type": "District",
+    "name_kh": "វ៉ារិន",
+    "name_en": "Varin",
+    "province_id": 17
+  },
+  {
+    "id": "159",
+    "code": "1801",
+    "type": "Municipality",
+    "name_kh": "ព្រះសីហនុ",
+    "name_en": "Preah Sihanouk",
+    "province_id": 18
+  },
+  {
+    "id": "160",
+    "code": "1802",
+    "type": "District",
+    "name_kh": "ព្រៃនប់",
+    "name_en": "Prey Nob",
+    "province_id": 18
+  },
+  {
+    "id": "161",
+    "code": "1803",
+    "type": "District",
+    "name_kh": "ស្ទឹងហាវ",
+    "name_en": "Stueng Hav",
+    "province_id": 18
+  },
+  {
+    "id": "162",
+    "code": "1804",
+    "type": "District",
+    "name_kh": "កំពង់សីលា",
+    "name_en": "Kampong Seila",
+    "province_id": 18
+  },
+  {
+    "id": "163",
+    "code": "1805",
+    "type": "Municipality",
+    "name_kh": "កោះរ៉ុង",
+    "name_en": "Kaoh Rung",
+    "province_id": 18
+  },
+  {
+    "id": "164",
+    "code": "1901",
+    "type": "District",
+    "name_kh": "សេសាន",
+    "name_en": "Sesan",
+    "province_id": 19
+  },
+  {
+    "id": "165",
+    "code": "1902",
+    "type": "District",
+    "name_kh": "សៀមបូក",
+    "name_en": "Siem Bouk",
+    "province_id": 19
+  },
+  {
+    "id": "166",
+    "code": "1903",
+    "type": "District",
+    "name_kh": "សៀមប៉ាង",
+    "name_en": "Siem Pang",
+    "province_id": 19
+  },
+  {
+    "id": "167",
+    "code": "1904",
+    "type": "Municipality",
+    "name_kh": "ស្ទឹងត្រែង",
+    "name_en": "Stueng Traeng",
+    "province_id": 19
+  },
+  {
+    "id": "168",
+    "code": "1905",
+    "type": "District",
+    "name_kh": "ថាឡាបរិវ៉ាត់",
+    "name_en": "Thala Barivat",
+    "province_id": 19
+  },
+  {
+    "id": "169",
+    "code": "1906",
+    "type": "District",
+    "name_kh": "បុរីអូរស្វាយសែនជ័យ",
+    "name_en": "Borei Ou Svay Senchey",
+    "province_id": 19
+  },
+  {
+    "id": "170",
+    "code": "2001",
+    "type": "District",
+    "name_kh": "ចន្ទ្រា",
+    "name_en": "Chantrea",
+    "province_id": 20
+  },
+  {
+    "id": "171",
+    "code": "2002",
+    "type": "District",
+    "name_kh": "កំពង់រោទិ៍",
+    "name_en": "Kampong Rou",
+    "province_id": 20
+  },
+  {
+    "id": "172",
+    "code": "2003",
+    "type": "District",
+    "name_kh": "រំដួល",
+    "name_en": "Rumduol",
+    "province_id": 20
+  },
+  {
+    "id": "173",
+    "code": "2004",
+    "type": "District",
+    "name_kh": "រមាសហែក",
+    "name_en": "Romeas Haek",
+    "province_id": 20
+  },
+  {
+    "id": "174",
+    "code": "2005",
+    "type": "District",
+    "name_kh": "ស្វាយជ្រំ",
+    "name_en": "Svay Chrum",
+    "province_id": 20
+  },
+  {
+    "id": "175",
+    "code": "2006",
+    "type": "Municipality",
+    "name_kh": "ស្វាយរៀង",
+    "name_en": "Svay Rieng",
+    "province_id": 20
+  },
+  {
+    "id": "176",
+    "code": "2007",
+    "type": "District",
+    "name_kh": "ស្វាយទាប",
+    "name_en": "Svay Teab",
+    "province_id": 20
+  },
+  {
+    "id": "177",
+    "code": "2008",
+    "type": "Municipality",
+    "name_kh": "បាវិត",
+    "name_en": "Bavet",
+    "province_id": 20
+  },
+  {
+    "id": "178",
+    "code": "2101",
+    "type": "District",
+    "name_kh": "អង្គរបូរី",
+    "name_en": "Angkor Borei",
+    "province_id": 21
+  },
+  {
+    "id": "179",
+    "code": "2102",
+    "type": "District",
+    "name_kh": "បាទី",
+    "name_en": "Bati",
+    "province_id": 21
+  },
+  {
+    "id": "180",
+    "code": "2103",
+    "type": "District",
+    "name_kh": "បូរីជលសារ",
+    "name_en": "Borei Cholsar",
+    "province_id": 21
+  },
+  {
+    "id": "181",
+    "code": "2104",
+    "type": "District",
+    "name_kh": "គីរីវង់",
+    "name_en": "Kiri Vong",
+    "province_id": 21
+  },
+  {
+    "id": "182",
+    "code": "2105",
+    "type": "District",
+    "name_kh": "កោះអណ្ដែត",
+    "name_en": "Kaoh Andaet",
+    "province_id": 21
+  },
+  {
+    "id": "183",
+    "code": "2106",
+    "type": "District",
+    "name_kh": "ព្រៃកប្បាស",
+    "name_en": "Prey Kabbas",
+    "province_id": 21
+  },
+  {
+    "id": "184",
+    "code": "2107",
+    "type": "District",
+    "name_kh": "សំរោង",
+    "name_en": "Samraong",
+    "province_id": 21
+  },
+  {
+    "id": "185",
+    "code": "2108",
+    "type": "Municipality",
+    "name_kh": "ដូនកែវ",
+    "name_en": "Doun Kaev",
+    "province_id": 21
+  },
+  {
+    "id": "186",
+    "code": "2109",
+    "type": "District",
+    "name_kh": "ត្រាំកក់",
+    "name_en": "Tram Kak",
+    "province_id": 21
+  },
+  {
+    "id": "187",
+    "code": "2110",
+    "type": "District",
+    "name_kh": "ទ្រាំង",
+    "name_en": "Treang",
+    "province_id": 21
+  },
+  {
+    "id": "188",
+    "code": "2201",
+    "type": "District",
+    "name_kh": "អន្លង់វែង",
+    "name_en": "Anlong Veaeng",
+    "province_id": 22
+  },
+  {
+    "id": "189",
+    "code": "2202",
+    "type": "District",
+    "name_kh": "បន្ទាយអំពិល",
+    "name_en": "Banteay Ampil",
+    "province_id": 22
+  },
+  {
+    "id": "190",
+    "code": "2203",
+    "type": "District",
+    "name_kh": "ចុងកាល់",
+    "name_en": "Chong Kal",
+    "province_id": 22
+  },
+  {
+    "id": "191",
+    "code": "2204",
+    "type": "Municipality",
+    "name_kh": "សំរោង",
+    "name_en": "Samraong",
+    "province_id": 22
+  },
+  {
+    "id": "192",
+    "code": "2205",
+    "type": "District",
+    "name_kh": "ត្រពាំងប្រាសាទ",
+    "name_en": "Trapeang Prasat",
+    "province_id": 22
+  },
+  {
+    "id": "193",
+    "code": "2301",
+    "type": "District",
+    "name_kh": "ដំណាក់ចង្អើរ",
+    "name_en": "Damnak Chang'aeur",
+    "province_id": 23
+  },
+  {
+    "id": "194",
+    "code": "2302",
+    "type": "Municipality",
+    "name_kh": "កែប",
+    "name_en": "Kaeb",
+    "province_id": 23
+  },
+  {
+    "id": "195",
+    "code": "2401",
+    "type": "Municipality",
+    "name_kh": "ប៉ៃលិន",
+    "name_en": "Pailin",
+    "province_id": 24
+  },
+  {
+    "id": "196",
+    "code": "2402",
+    "type": "District",
+    "name_kh": "សាលាក្រៅ",
+    "name_en": "Sala Krau",
+    "province_id": 24
+  },
+  {
+    "id": "197",
+    "code": "2501",
+    "type": "District",
+    "name_kh": "តំបែរ",
+    "name_en": "Dambae",
+    "province_id": 25
+  },
+  {
+    "id": "198",
+    "code": "2502",
+    "type": "District",
+    "name_kh": "ក្រូចឆ្មារ",
+    "name_en": "Krouch Chhmar",
+    "province_id": 25
+  },
+  {
+    "id": "199",
+    "code": "2503",
+    "type": "District",
+    "name_kh": "មេមត់",
+    "name_en": "Memot",
+    "province_id": 25
+  },
+  {
+    "id": "200",
+    "code": "2504",
+    "type": "District",
+    "name_kh": "អូររាំងឪ",
+    "name_en": "Ou Reang Ov",
+    "province_id": 25
+  },
+  {
+    "id": "201",
+    "code": "2505",
+    "type": "District",
+    "name_kh": "ពញាក្រែក",
+    "name_en": "Ponhea Kraek",
+    "province_id": 25
+  },
+  {
+    "id": "202",
+    "code": "2506",
+    "type": "Municipality",
+    "name_kh": "សួង",
+    "name_en": "Suong",
+    "province_id": 25
+  },
+  {
+    "id": "203",
+    "code": "2507",
+    "type": "District",
+    "name_kh": "ត្បូងឃ្មុំ",
+    "name_en": "Tboung Khmum",
+    "province_id": 25
+  }
+]
