@@ -4,7 +4,7 @@ FROM nixos/nix
 COPY . .
 
 # Install PHP and necessary extensions
-RUN nix-env -iA nixpkgs.php81 nixpkgs.php81Extensions.fileinfo nixpkgs.pecl_http nixpkgs.mysql \
+RUN nix-env -iA nixpkgs.php81 nixpkgs.php81Extensions.fileinfo nixpkgs.php81Packages.php-http nixpkgs.mysql \
     && nix-collect-garbage -d \
     && composer install
 
