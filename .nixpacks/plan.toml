@@ -1,8 +1,0 @@
-[phases.setup]
-  run = "composer install"
-
-[phases.build]
-  run = """
-  nix-env -iA nixpkgs.php81 nixpkgs.php81Extensions.fileinfo nixpkgs.pecl_http nixpkgs.mysql
-  nix-collect-garbage -d
-  """
