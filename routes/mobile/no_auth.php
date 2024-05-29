@@ -9,3 +9,6 @@ Route::prefix('auth/user')->group(function () {
     Route::get('/refresh_token',[AuthController::class, 'refresh_token'])->middleware(['auth:sanctum','type.refresh_token']);
 });
 
+Route::prefix('universities')->group(function () {
+    Route::get('', [UniversityController::class, 'index']);
+});

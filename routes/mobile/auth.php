@@ -7,7 +7,3 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('auth/user')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
 });
-
-Route::prefix('universities')->group(function () {
-    Route::get('', [UniversityController::class, 'index']);
-});
