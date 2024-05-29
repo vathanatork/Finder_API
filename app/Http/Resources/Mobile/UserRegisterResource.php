@@ -17,7 +17,7 @@ class UserRegisterResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return  $this->only('id', 'name', 'email');
+        return  $this->only('id', 'name', 'gender','birthday','email');
     }
 
 }

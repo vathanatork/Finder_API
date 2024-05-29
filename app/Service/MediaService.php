@@ -15,7 +15,6 @@ class MediaService
 	 */
 	public function uploadBase64($base64, string $dir = 'supplier'): string|null
     {
-
         if (CoreBase::isUrl($base64))
         {
             return str_replace(url('/') . '/', '', $base64);
