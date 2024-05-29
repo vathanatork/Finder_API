@@ -23,13 +23,13 @@ class UniversityController extends Controller
 
     public function create(CreateRequest $request): \Illuminate\Http\JsonResponse
     {
-        if ($request->getLogoImage() && CoreBase::isBase64($request->getLogoImage()) && !CoreBase::isUrl
-            ($request->getLogoImage()))
+        if ($request->getLogoImage() && (CoreBase::isBase64($request->getLogoImage()) || CoreBase::isUrl
+            ($request->getLogoImage())))
         {
             $request->setLogoImage($this->mediaService->uploadBase64($request->getLogoImage(),"university_logo"));
         }
 
-        if ($request->getImage() && CoreBase::isBase64($request->getImage()) && !CoreBase::isUrl($request->getImage()))
+        if ($request->getImage() && (CoreBase::isBase64($request->getImage()) || CoreBase::isUrl($request->getImage())))
         {
             $request->setImage($this->mediaService->uploadBase64($request->getImage(),"university_image"));
         }

@@ -13,46 +13,70 @@ class MediaService
 	 * @param string $dir
 	 * @return string|null
 	 */
-	public function uploadBase64($base64, string $dir = 'supplier'): string|null
+    public function uploadBase64($base64, string $dir = 'supplier'): ?string
     {
-        if (CoreBase::isUrl($base64))
-        {
+        // Check if the input is a URL and return the path if it is.
+        if (CoreBase::isUrl($base64)) {
             return str_replace(url('/') . '/', '', $base64);
         }
+
+        // Define allowed file types.
         $allowed = ['png', 'jpg', 'jpeg', 'pdf'];
-        if (explode("/", $base64)[0] == "data:image") {
-            $base64 = explode(";base64,", $base64)[1];
-        }elseif (explode("/", $base64)[0] == "data:application") {
-            // If the base64 data represents a PDF, extract the PDF data.
+
+        // Extract the base64 encoded string from the input.
+        if (str_starts_with($base64, 'data:image') || str_starts_with($base64, 'data:application')) {
             $base64 = explode(";base64,", $base64)[1];
         }
 
+        // Decode the base64 string.
         $data = base64_decode($base64);
-        $f = finfo_open();
-        $imageType = finfo_buffer($f, $data, FILEINFO_EXTENSION);
-        if (explode("/", $imageType)[0] == "jpeg") {
-            $imageType = "jpeg";
+        if ($data === false) {
+            return null; // Invalid base64 data
         }
 
-        if (!in_array($imageType, $allowed)) {
-            return null;
+        $mimeType = null;
+        $imageInfo = getimagesizefromstring($data);
+        if ($imageInfo) {
+            $mimeType = $imageInfo['mime'];
         }
 
+        // Map MIME types to file extensions.
+        $mimeToExtension = [
+            'image/png' => 'png',
+            'image/jpeg' => 'jpeg',
+            'image/jpg' => 'jpg',
+            'application/pdf' => 'pdf'
+        ];
 
-        $filename =   uniqid() . '-' . time() . '.' . $imageType;
-        $dirSmallPath = 'uploads/'.$dir.'/' . date('Y') . '/' . date('m') . '/' . date('d') . '/';
+        // Get the file extension from the MIME type.
+        $imageType = $mimeToExtension[$mimeType] ?? null;
+        if (!$imageType || !in_array($imageType, $allowed)) {
+            return null; // Unsupported file type
+        }
 
+        // Generate a unique filename.
+        $filename = uniqid() . '-' . time() . '.' . $imageType;
+
+        // Define the directory path.
+        $dirSmallPath = 'uploads/' . $dir . '/' . date('Y') . '/' . date('m') . '/' . date('d') . '/';
+
+        // Create the directory if it doesn't exist.
         if (!is_dir(public_path($dirSmallPath))) {
-            @mkdir(public_path($dirSmallPath), 0755, true);
+            if (!mkdir(public_path($dirSmallPath), 0755, true) && !is_dir(public_path($dirSmallPath))) {
+                return null; // Failed to create directory
+            }
         }
 
-
+        // Define the full path for the file.
         $fullPath = $dirSmallPath . $filename;
 
-        Storage::disk('uploads')->put($fullPath,$data);
+        // Store the file using the 'uploads' disk configuration.
+        Storage::disk('uploads')->put($fullPath, $data);
 
         return $fullPath;
     }
+
+
 
     public function uploadAudio($base64): string|null
     {
