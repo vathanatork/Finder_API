@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('specialize_degree_levels', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('specialize_id');
+            $table->unsignedBigInteger('degree_level_id');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

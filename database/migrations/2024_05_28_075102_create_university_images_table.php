@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('university_images', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('university_id');
+            $table->string('image_url');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
