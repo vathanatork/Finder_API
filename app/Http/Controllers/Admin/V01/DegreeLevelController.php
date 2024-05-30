@@ -11,6 +11,9 @@ use App\Models\DegreeLevel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * @property $is_active
+ */
 class DegreeLevelController extends Controller
 {
     use PaginateTrait, ValidationFailTrait;
@@ -42,7 +45,7 @@ class DegreeLevelController extends Controller
             'name_kh' => 'required|string',
             'description_en' => 'string',
             'description_kh' => 'string',
-            'is_active' => 'boolean'
+            'is_active' => 'sometimes|boolean'
         ]);
 
         $validationResponse = $this->validationFail($validator);
@@ -51,7 +54,7 @@ class DegreeLevelController extends Controller
         }
 
         $createData = $request->only('name_kh','name_en','description_kh','description_en','description') + [
-            'is_active' => $this->is_active ?? true
+            'is_active' => $request->has('is_active') ? $request->input('is_active') : true
         ];
         DegreeLevel::create($createData);
 
