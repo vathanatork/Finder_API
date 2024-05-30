@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Mobile;
 
+use App\Helpers\UrlHelper;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -26,7 +27,7 @@ class UniversityListResource extends JsonResource
         return $this->only('id', 'name','graduation_rate','average_tuition','average_study_year') + [
                 'type' => $this->type->name,
                 'logo_image' => $this->logo_image ? url( $this->logo_image) : null,
-                'image' => $this->image ? url($this->image) : null
+                'image' => $this->image ? UrlHelper::resolveUrl($this->image,env('MINIO_BASE_URL',null)) : null
             ];
     }
 }
