@@ -14,11 +14,15 @@ Route::prefix('auth/admin')->group(function () {
 Route::prefix('university_types')->group(function () {
     Route::post('',[UniversityTypeController::class,'create']);
     Route::get('',[UniversityTypeController::class, 'index']);
+    Route::put('/{id}',[UniversityTypeController::class, 'update']);
+    Route::delete('/{id}',[UniversityTypeController::class, 'destroy']);
 });
 
 Route::prefix('contact_information')->group(function () {
     Route::post('',[ContactInformationController::class,'create']);
     Route::get('',[ContactInformationController::class,'index']);
+    Route::put('/{id}',[ContactInformationController::class,'update']);
+    Route::delete('/{id}',[ContactInformationController::class,'destroy']);
 });
 
 Route::prefix('adr')->group(function () {
