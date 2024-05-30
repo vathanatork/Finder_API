@@ -36,11 +36,19 @@ class ContactInformationController extends Controller
         }
 
         $this->setCode(StatusCodeEnum::OK);
-        $this->setMessage('successfully get contact');
+        $this->setMessage('successfully');
         $this->setResult('contact_information',ContactInformationResource::collection($contact));
         return $this->returnResults();
     }
 
+    public function show(string $id): \Illuminate\Http\JsonResponse
+    {
+        $contact = ContactInformation::findOrFail($id);
+        $this->setCode(StatusCodeEnum::OK);
+        $this->setMessage('successfully get contact');
+        $this->setResult('contact_information',ContactInformationResource::make($contact));
+        return $this->returnResults();
+    }
     public function create(ContactRequest $request): \Illuminate\Http\JsonResponse
     {
         $contact = ContactInformation::create([

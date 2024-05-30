@@ -38,6 +38,15 @@ class DegreeLevelController extends Controller
 
     }
 
+    public function show(string $id): \Illuminate\Http\JsonResponse
+    {
+        $degree = DegreeLevel::findOrFail($id);
+        $this->setCode(StatusCodeEnum::OK);
+        $this->setMessage('Successfully');
+        $this->setResult('degree_level',DegreeLevelResource::make($degree));
+        return $this->returnResults();
+    }
+
     public function create(Request $request): \Illuminate\Http\JsonResponse
     {
         $validator = Validator::make($request->all(),[

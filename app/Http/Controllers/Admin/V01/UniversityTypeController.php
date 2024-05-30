@@ -34,6 +34,15 @@ class UniversityTypeController extends Controller
         return $this->returnResults();
     }
 
+    public function show(string $id): \Illuminate\Http\JsonResponse
+    {
+        $type = UniversityType::findOrFail($id);
+        $this->setCode(StatusCodeEnum::OK);
+        $this->setMessage('Successfully');
+        $this->setResult('university_type', $type);
+        return $this->returnResults();
+    }
+
     public function create(Request $request): \Illuminate\Http\JsonResponse
     {
         // Define the validation rules

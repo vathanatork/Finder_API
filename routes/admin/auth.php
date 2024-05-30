@@ -15,6 +15,7 @@ Route::prefix('auth/admin')->group(function () {
 Route::prefix('university_types')->group(function () {
     Route::post('',[UniversityTypeController::class,'create']);
     Route::get('',[UniversityTypeController::class, 'index']);
+    Route::get('/{id}',[UniversityTypeController::class, 'show']);
     Route::put('/{id}',[UniversityTypeController::class, 'update']);
     Route::delete('/{id}',[UniversityTypeController::class, 'destroy']);
 });
@@ -22,6 +23,7 @@ Route::prefix('university_types')->group(function () {
 Route::prefix('contact_information')->group(function () {
     Route::post('',[ContactInformationController::class,'create']);
     Route::get('',[ContactInformationController::class,'index']);
+    Route::get('/{id}',[ContactInformationController::class,'show']);
     Route::put('/{id}',[ContactInformationController::class,'update']);
     Route::delete('/{id}',[ContactInformationController::class,'destroy']);
 });
@@ -36,6 +38,7 @@ Route::prefix('adr')->group(function () {
 Route::prefix('degree_levels')->group(function () {
     Route::get('',[DegreeLevelController::class,'index']);
     Route::post('',[DegreeLevelController::class,'create']);
+    Route::get('/{id}',[DegreeLevelController::class,'show']);
     Route::put('/{id}',[DegreeLevelController::class,'update']);
     Route::delete('/{id}',[DegreeLevelController::class,'destroy']);
 });
