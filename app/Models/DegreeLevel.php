@@ -4,8 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @method static create(array|true[] $createData)
+ * @method static latest()
+ * @method static findOrFail(string $id)
+ */
 class DegreeLevel extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
+
+    protected $guarded = ['id'];
+
+    public function scopeActive($query,$params)
+    {
+        return $query->where('is_active',$params);
+    }
 }

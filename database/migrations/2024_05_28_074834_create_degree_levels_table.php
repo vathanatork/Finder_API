@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('degree_levels', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
+            $table->string('name_en');
+            $table->string('name_kh');
+            $table->text('description_en');
+            $table->text('description_kh');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();
