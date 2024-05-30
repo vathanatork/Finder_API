@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @method static active()
  * @method static create(array $array)
+ * @method static latest()
+ * @method static findOrFail(string $id)
  */
 class ContactInformation extends Model
 {
@@ -18,8 +20,8 @@ class ContactInformation extends Model
 
     protected $guarded = ['id'];
 
-    public function scopeActive($query)
+    public function scopeActive($query,$params)
     {
-        return $query->where('is_active', true);
+        return $query->where('is_active', $params);
     }
 }
