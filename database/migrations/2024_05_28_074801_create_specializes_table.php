@@ -13,7 +13,20 @@ return new class extends Migration
     {
         Schema::create('specializes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('major_id')->nullable();
+            $table->unsignedBigInteger('major_name_id');
+            $table->text('description_en')->nullable();
+            $table->text('description_kh')->nullable();
+            $table->decimal('tuition',10,2)->nullable();
+            $table->decimal('study_duration',5,1)->nullable();
+            $table->string('future_career_en')->nullable();
+            $table->string('future_career_kh')->nullable();
+            $table->integer('student_number')->nullable();
+            $table->decimal('required_credit',5,2)->nullable();
+            $table->string('curriculum_url')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

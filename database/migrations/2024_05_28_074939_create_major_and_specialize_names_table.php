@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('major_and_specialize_names', function (Blueprint $table) {
             $table->id();
+            $table->string('name_en')->nullable();
+            $table->string('name_kh')->nullable();
+            $table->string('image_url')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -71,7 +71,7 @@ class MediaService
         $fullPath = $dirSmallPath . $filename;
 
         // Store the file using the 'uploads' disk configuration.
-        Storage::disk('uploads')->put($fullPath, $data);
+        Storage::disk(env('FILESYSTEM_DISK', 'local'))->put($fullPath, $data);
 
         return $fullPath;
     }

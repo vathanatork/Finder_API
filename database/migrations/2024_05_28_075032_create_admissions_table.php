@@ -13,7 +13,22 @@ return new class extends Migration
     {
         Schema::create('admissions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('university_id');
+            $table->unsignedBigInteger('major_id')->nullable();
+            $table->text('admission_requirements_en')->nullable();
+            $table->text('admission_requirements_kh')->nullable();
+            $table->integer('average_student_acceptance')->nullable();
+            $table->date('application_deadline')->nullable();
+            $table->text('admission_process_en')->nullable();
+            $table->unsignedBigInteger('contact_info_id')->nullable();
+            $table->text('description_en')->nullable();
+            $table->text('description_kh')->nullable();
+            $table->string('admission_url')->nullable();
+            $table->text('other_en')->nullable();
+            $table->text('other_kh')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

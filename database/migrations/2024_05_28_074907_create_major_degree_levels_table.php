@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('major_degree_levels', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('major_id');
+            $table->unsignedBigInteger('degree_level_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
