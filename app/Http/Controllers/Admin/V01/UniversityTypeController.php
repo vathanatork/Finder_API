@@ -17,7 +17,11 @@ class UniversityTypeController extends Controller
     public function index(Request $request): \Illuminate\Http\JsonResponse
     {
         $typeQuery = UniversityType::latest();
-        if ($request->has('is_active') && filter_var($request->input('is_active'), FILTER_VALIDATE_BOOLEAN)) {
+
+        $validator = Validator::make($request->all(), [
+            'is_active' => 'sometimes|boolean'
+        ]);
+        if (!$validator->fails()) {
             $typeQuery = $typeQuery->active($request->input('is_active'));
         }
 

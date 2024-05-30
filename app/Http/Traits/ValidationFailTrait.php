@@ -6,7 +6,7 @@ use App\Constants\Enum\StatusCodeEnum;
 
 trait ValidationFailTrait
 {
-    public function validationFail($validator)
+    public function validationFail($validator): ?\Illuminate\Http\JsonResponse
     {
         if ($validator->fails()) {
             $this->setCode(StatusCodeEnum::CONFLICT);

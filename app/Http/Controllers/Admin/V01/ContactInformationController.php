@@ -20,7 +20,10 @@ class ContactInformationController extends Controller
     {
         $contact = ContactInformation::latest();
 
-        if ($request->has('is_active') && filter_var($request->input('is_active'), FILTER_VALIDATE_BOOLEAN)) {
+        $validator = Validator::make($request->all(), [
+            'is_active' => 'sometimes|boolean'
+        ]);
+        if (!$validator->fails()) {
             $contact = $contact->active($request->input('is_active'));
         }
 
