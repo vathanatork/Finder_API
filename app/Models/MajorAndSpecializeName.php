@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static create(array $array)
+ * @method static active()
  */
 class MajorAndSpecializeName extends Model
 {
@@ -16,4 +17,9 @@ class MajorAndSpecializeName extends Model
     protected $table = 'major_and_specialize_names';
 
     protected $guarded = ['id'];
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active',true);
+    }
 }

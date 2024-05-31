@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Mobile\V01\AuthController;
+use App\Http\Controllers\Mobile\V01\GetFilterListController;
 use App\Http\Controllers\Mobile\V01\UniversityController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,4 +13,11 @@ Route::prefix('auth/user')->group(function () {
 
 Route::prefix('universities')->group(function () {
     Route::get('', [UniversityController::class, 'index']);
+});
+
+Route::prefix('getFilter')->group(function () {
+   Route::get('majors',[GetFilterListController::class, 'getMajors']);
+   Route::get('types',[GetFilterListController::class, 'getTypes']);
+   Route::get('locations',[GetFilterListController::class,'getLocations']);
+   Route::get('degrees',[GetFilterListController::class, 'getDegrees']);
 });

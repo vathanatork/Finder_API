@@ -19,8 +19,8 @@ class UniversityType extends Model
     use HasFactory,SoftDeletes;
     protected $guarded = ['id'];
 
-    public function scopeActive($query,$params)
+    public function scopeActive($query)
     {
-        return $query->where('is_active', $params);
+        return $query->where('is_active', true);
     }
 }
