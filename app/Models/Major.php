@@ -8,10 +8,32 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static create(array $array)
+ * @method static active()
  */
 class Major extends Model
 {
     use HasFactory,SoftDeletes;
 
     protected $guarded = ['id'];
+
+    public function university(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+       return $this->hasMany(University::class,'university_id');
+    }
+
+    public function majorName(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(MajorAndSpecializeName::class,'major_name_id');
+    }
+
+    public function scopeSearch($query,$params)
+    {
+        $search = strtolower($params);
+        return $query->whereRaw('LOWER(name) COLLATE utf8mb4_general_ci LIKE ?', ['%' . $search . '%']);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active',true);
+    }
 }

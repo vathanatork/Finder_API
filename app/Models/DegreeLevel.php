@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static create(array|true[] $createData)
  * @method static latest()
  * @method static findOrFail(string $id)
+ * @method static isActive()
  */
 class DegreeLevel extends Model
 {
@@ -20,5 +21,10 @@ class DegreeLevel extends Model
     public function scopeActive($query,$params)
     {
         return $query->where('is_active',$params);
+    }
+
+    public function scopeIsActive($query)
+    {
+        return $query->where('is_active',true);
     }
 }

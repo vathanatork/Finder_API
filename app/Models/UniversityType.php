@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static latest()
  * @method static find(string $id)
  * @method static findOrFail(string $id)
+ * @method static isActive()
  * @property mixed $name
  * @property mixed|true $is_active
  */
@@ -22,5 +23,10 @@ class UniversityType extends Model
     public function scopeActive($query,$params)
     {
         return $query->where('is_active', $params);
+    }
+
+    public function scopeIsActive($query)
+    {
+        return $query->where('is_active', true);
     }
 }
