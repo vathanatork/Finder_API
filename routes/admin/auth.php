@@ -4,6 +4,9 @@ use App\Http\Controllers\Admin\V01\AdrController;
 use App\Http\Controllers\Admin\V01\AuthController;
 use App\Http\Controllers\Admin\V01\ContactInformationController;
 use App\Http\Controllers\Admin\V01\DegreeLevelController;
+use App\Http\Controllers\Admin\V01\DegreeLevelRelationController;
+use App\Http\Controllers\Admin\V01\MajorAndSpecializeNameController;
+use App\Http\Controllers\Admin\V01\MajorController;
 use App\Http\Controllers\Admin\V01\UniversityController;
 use App\Http\Controllers\Admin\V01\UniversityTypeController;
 use Illuminate\Support\Facades\Route;
@@ -45,4 +48,18 @@ Route::prefix('degree_levels')->group(function () {
 
 Route::prefix('universities')->group(function () {
     Route::post('',[UniversityController::class,'create']);
+});
+
+Route::prefix('majors')->group(function () {
+    Route::post('',[MajorController::class,'create']);
+});
+
+Route::prefix('major_and_specialize_names')->group(function () {
+    Route::post('',[MajorAndSpecializeNameController::class,'create']);
+});
+
+Route::prefix('degree_level_relation')->group(function () {
+    Route::post('/major',[DegreeLevelRelationController::class,'createMajorDegree']);
+    Route::post('/specialize',[DegreeLevelRelationController::class,'createSpecializeDegree']);
+    Route::post('/university',[DegreeLevelRelationController::class,'createUniversityDegree']);
 });

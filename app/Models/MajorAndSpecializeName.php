@@ -6,9 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Major_degree_level extends Model
+/**
+ * @method static create(array $array)
+ */
+class MajorAndSpecializeName extends Model
 {
     use HasFactory,SoftDeletes;
+
+    protected $table = 'major_and_specialize_names';
 
     protected $guarded = ['id'];
 }
