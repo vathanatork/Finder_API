@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @method static create(array $array)
+ * @method static create(array $createData)
  */
-class Major extends Model
+class MajorDegreeLevel extends Model
 {
     use HasFactory,SoftDeletes;
 
