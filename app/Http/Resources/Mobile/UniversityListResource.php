@@ -25,7 +25,7 @@ class UniversityListResource extends JsonResource
     public function toArray(Request $request): array
     {
         return $this->only('id', 'name','graduation_rate','average_tuition','average_study_year') + [
-                'type' => $this->type->name,
+                'type' => $this->type->name ?? null,
                 'logo_image' => $this->logo_image ? url( $this->logo_image) : null,
                 'image' => $this->image ? UrlHelper::resolveUrl($this->image,env('MINIO_BASE_URL',null)) : null
             ];

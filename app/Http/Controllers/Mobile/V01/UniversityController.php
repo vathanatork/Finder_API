@@ -28,7 +28,7 @@ class UniversityController extends Controller
 
         $this->setCode(200);
         $this->setMessage("Success");
-        $this->setResult('list',UniversityListResource::collection($university));
+        $this->setResult('data',UniversityListResource::collection($university));
         $this->setResult('paginate',$this->getPaginate($university));
         return $this->returnResults();
     }
