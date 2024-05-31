@@ -26,7 +26,7 @@ class GetFilterListController extends Controller
 
     public function getTypes(): \Illuminate\Http\JsonResponse
     {
-        $type = UniversityType::active()->get();
+        $type = UniversityType::isActive()->get();
 
         $this->setCode(200);
         $this->setMessage("Success");
