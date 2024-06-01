@@ -47,7 +47,7 @@ class UniversityTypeController extends Controller
     {
         // Define the validation rules
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+            'name_en' => 'required|string|max:255',
             'is_active' => 'boolean'
         ]);
 
@@ -57,7 +57,8 @@ class UniversityTypeController extends Controller
         }
 
         $universityType = new UniversityType();
-        $universityType->name = $request->input('name');
+        $universityType->name_en = $request->input('name_en');
+        $universityType->name_kh = $request->input('name_kh');
         $universityType->is_active = $request->input('is_active') ?? true;
         $universityType->save();
         $this->setCode(StatusCodeEnum::OK);
@@ -69,7 +70,7 @@ class UniversityTypeController extends Controller
     {
         // Define the validation rules
         $validator = Validator::make($request->all(), [
-            'name' => 'sometimes|string|max:255',
+            'name_en' => 'sometimes|string|max:255',
             'is_active' => 'sometimes|boolean'
         ]);
 
@@ -79,7 +80,7 @@ class UniversityTypeController extends Controller
         }
 
         $type = UniversityType::findOrFail($id);
-        $updateData = $request->only(['name', 'is_active']);
+        $updateData = $request->only(['name_en','name_kh','is_active']);
         $type->update($updateData);
 
         $this->setCode(StatusCodeEnum::OK);

@@ -27,4 +27,24 @@ class UniversityRequest extends FormRequest
     {
         return request()->limit ?? 10;
     }
+
+    public function getMajor()
+    {
+        return request()->major;
+    }
+
+    public function getType()
+    {
+        return request()->type;
+    }
+
+    public function getDegree()
+    {
+        return request()->degree;
+    }
+
+    public function getLocation()
+    {
+        return request()->location;
+    }
 }
