@@ -40,6 +40,16 @@ class MajorController extends Controller
         return $this->returnResults();
     }
 
+    public function show(string $id): \Illuminate\Http\JsonResponse
+    {
+        $major = Major::findOrFail($id);
+
+        $this->setCode(StatusCodeEnum::OK);
+        $this->setMessage('Successfully');
+        $this->setResult('major',MajorResource::make($major));
+        return $this->returnResults();
+    }
+
     public function create(MajorRequest $request): \Illuminate\Http\JsonResponse
     {
         Major::create([
@@ -47,6 +57,7 @@ class MajorController extends Controller
             'institute_id' => $request->getInstituteId(),
             'university_id' => $request->getUniversityId(),
             'major_name_id' => $request->getMajorNameId(),
+            'tuition' => $request->getTuition(),
             'description_en' => $request->getDescriptionEn(),
             'description_kh' => $request->getDescriptionKh(),
             'curriculum_url' => $request->getCurriculumUrl(),
@@ -61,7 +72,7 @@ class MajorController extends Controller
     public function update(MajorRequest $request,string $id): \Illuminate\Http\JsonResponse
     {
         $major = Major::findOrFail($id);
-        $updateData = $request->only('department_id','institute_id','university_id','major_name_id','description_en','description_kh','curriculum_url','is_active');
+        $updateData = $request->only('tuition','department_id','institute_id','university_id','major_name_id','description_en','description_kh','curriculum_url','is_active');
         $major->update($updateData);
 
         $this->setCode(200);

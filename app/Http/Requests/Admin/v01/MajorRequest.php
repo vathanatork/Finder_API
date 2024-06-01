@@ -19,6 +19,7 @@ class MajorRequest extends FormRequest
             'institute_id' => 'integer',
             'university_id' => 'required|integer',
             'major_name_id' => 'required|integer',
+            'tuition' => 'required',
             'description_en' => 'required|string',
             'description_kh' => 'required|string',
             'is_active' => 'boolean'
@@ -28,7 +29,7 @@ class MajorRequest extends FormRequest
         if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
             foreach ($rules as $key => $rule) {
                 if (is_string($rule) && Str::contains($rule, 'required')) {
-                    $rules[$key] = 'sometimes|' . Str::after($rule, 'required|');
+                    $rules[$key] = str_replace('required', 'sometimes', $rule);
                 }
             }
         }
@@ -36,6 +37,10 @@ class MajorRequest extends FormRequest
         return $rules;
     }
 
+    public function getTuition()
+    {
+        return  request()->tuition;
+    }
     public function getIsActive()
     {
         return request()->is_active ?? true;
