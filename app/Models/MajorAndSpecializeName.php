@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @method static create(array $array)
  * @method static active()
+ * @method static find($id)
  */
 class MajorAndSpecializeName extends Model
 {

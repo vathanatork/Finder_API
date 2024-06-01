@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\v01;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class ContactRequest extends FormRequest
 {
@@ -15,12 +16,23 @@ class ContactRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required|string',
             'address' => 'required|string',
             'primary_phone_number' => 'required|string|between:8,10',
             'email' => 'required|email'
         ];
+
+        // If the request method is PUT or PATCH (i.e., update), change 'required' to 'sometimes'
+        if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
+            foreach ($rules as $key => $rule) {
+                if (is_string($rule) && Str::contains($rule, 'required')) {
+                    $rules[$key] = 'sometimes|' . Str::after($rule, 'required|');
+                }
+            }
+        }
+
+        return $rules;
     }
 
     public function getName()

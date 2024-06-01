@@ -49,6 +49,7 @@ class ContactInformationController extends Controller
         $this->setResult('contact_information',ContactInformationResource::make($contact));
         return $this->returnResults();
     }
+
     public function create(ContactRequest $request): \Illuminate\Http\JsonResponse
     {
         $contact = ContactInformation::create([
@@ -67,20 +68,8 @@ class ContactInformationController extends Controller
         return $this->returnResults();
     }
 
-    public function update(Request $request, string $id): \Illuminate\Http\JsonResponse
+    public function update(ContactRequest $request, string $id): \Illuminate\Http\JsonResponse
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'sometimes|string',
-            'address' => 'sometimes|string',
-            'primary_phone_number' => 'sometimes|string|between:8,10',
-            'email' => 'sometimes|email'
-        ]);
-
-        $validationResponse = $this->validationFail($validator);
-        if ($validationResponse) {
-            return $validationResponse;
-        }
-
         $contact = ContactInformation::findOrFail($id);
         $updateData = $request->only(['name','address','email','primary_phone_number','second_phone_number','third_phone_number','is_active']);
         $contact->update($updateData);

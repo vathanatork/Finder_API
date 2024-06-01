@@ -3,8 +3,9 @@
 namespace App\Http\Requests\Admin\v01\University;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
-    class CreateRequest extends FormRequest
+class CreateRequest extends FormRequest
     {
 
         private string $logo_url = '';
@@ -16,7 +17,7 @@ use Illuminate\Foundation\Http\FormRequest;
          */
         public function rules(): array
         {
-            return [
+            $rules = [
                 'name' => 'required|string',
                 'logo_image' => 'required|string',
                 'image' => 'required|string',
@@ -31,6 +32,17 @@ use Illuminate\Foundation\Http\FormRequest;
                 'adr_village_id' => 'integer',
                 'is_active' => 'boolean'
             ];
+
+            // If the request method is PUT or PATCH (i.e., update), change 'required' to 'sometimes'
+            if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
+                foreach ($rules as $key => $rule) {
+                    if (is_string($rule) && Str::contains($rule, 'required')) {
+                        $rules[$key] = 'sometimes|' . Str::after($rule, 'required|');
+                    }
+                }
+            }
+
+            return $rules;
         }
 
         public function getName()
@@ -84,32 +96,32 @@ use Illuminate\Foundation\Http\FormRequest;
 
         public function getRanking()
         {
-            return request()->ranking ?? null;
+            return request()->ranking;
         }
 
         public function getContactInfoId()
         {
-            return request()->contact_info_id ?? null;
+            return request()->contact_info_id;
         }
 
         public function getGraduationRate()
         {
-            return request()->graduation_rate ?? null;
+            return request()->graduation_rate;
         }
 
         public function getAverageTuition()
         {
-            return request()->average_tuition ?? null;
+            return request()->average_tuition;
         }
 
         public function getAverageStudyYear()
         {
-            return request()->average_study_year ?? null;
+            return request()->average_study_year;
         }
 
         public function getAddress()
         {
-            return request()->address ?? null;
+            return request()->address;
         }
 
         public function getProvinceId()
@@ -119,17 +131,17 @@ use Illuminate\Foundation\Http\FormRequest;
 
         public function getDistrictId()
         {
-            return request()->adr_district_id ?? null;
+            return request()->adr_district_id;
         }
 
         public function getCommuneId()
         {
-            return request()->adr_commune_id ?? null;
+            return request()->adr_commune_id;
         }
 
         public function getVillageId()
         {
-            return request()->adr_village_id ?? null;
+            return request()->adr_village_id;
         }
 
         public function getIsActive():bool
