@@ -23,7 +23,7 @@ class ContactInformationController extends Controller
         $validator = Validator::make($request->all(), [
             'is_active' => 'sometimes|boolean'
         ]);
-        if (!$validator->fails()) {
+        if (!$validator->fails() && $request->has('is_active')) {
             $contact = $contact->active($request->input('is_active'));
         }
 

@@ -51,7 +51,11 @@ Route::prefix('universities')->group(function () {
 });
 
 Route::prefix('majors')->group(function () {
+    Route::get('',[MajorController::class,'index']);
     Route::post('',[MajorController::class,'create']);
+    Route::put('/{id}',[MajorController::class,'update']);
+    Route::delete('/{id}',[MajorController::class,'destroy']);
+
 });
 
 Route::prefix('major_and_specialize_names')->group(function () {
