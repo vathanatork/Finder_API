@@ -16,9 +16,9 @@ class Major extends Model
 
     protected $guarded = ['id'];
 
-    public function university(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function university(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-       return $this->hasMany(University::class,'university_id');
+       return $this->belongsTo(University::class,'university_id');
     }
 
     public function majorName(): \Illuminate\Database\Eloquent\Relations\BelongsTo

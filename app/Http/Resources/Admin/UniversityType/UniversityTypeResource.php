@@ -17,6 +17,6 @@ class UniversityTypeResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return $this->only('id', 'name', 'is_active');
+        return $this->only('id', 'name_en','name_kh', 'is_active');
     }
 }

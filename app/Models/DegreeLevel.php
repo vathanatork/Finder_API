@@ -18,6 +18,11 @@ class DegreeLevel extends Model
 
     protected $guarded = ['id'];
 
+    public function universities(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(University::class, 'university_degree_levels');
+    }
+
     public function scopeActive($query,$params)
     {
         return $query->where('is_active',$params);

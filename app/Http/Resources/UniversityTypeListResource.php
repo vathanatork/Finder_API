@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @method only(string $string, string $string1)
+ * @method only(string $string, string $string1, string $string2)
  */
 class UniversityTypeListResource extends JsonResource
 {
@@ -17,6 +17,6 @@ class UniversityTypeListResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return $this->only('id','name');
+        return $this->only('id','name_en','name_kh');
     }
 }
