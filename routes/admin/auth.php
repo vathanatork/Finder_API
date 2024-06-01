@@ -56,6 +56,7 @@ Route::prefix('universities')->group(function () {
 
 Route::prefix('majors')->group(function () {
     Route::get('',[MajorController::class,'index']);
+    Route::get('/{id}',[MajorController::class,'show']);
     Route::post('',[MajorController::class,'create']);
     Route::put('/{id}',[MajorController::class,'update']);
     Route::delete('/{id}',[MajorController::class,'destroy']);
