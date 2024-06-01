@@ -167,6 +167,7 @@ class Controller extends BaseController
         return $headers;
     }
 
+
     protected function returnResults($httpHeaderStatusCode = 200): JsonResponse
     {
         $results = [];

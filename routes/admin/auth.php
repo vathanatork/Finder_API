@@ -47,11 +47,18 @@ Route::prefix('degree_levels')->group(function () {
 });
 
 Route::prefix('universities')->group(function () {
+    Route::get('',[UniversityController::class, 'index']);
     Route::post('',[UniversityController::class,'create']);
+    Route::get('/{id}',[UniversityController::class, 'show']);
+    Route::put('/{id}',[UniversityController::class, 'update']);
+    Route::delete('/{id}',[UniversityController::class, 'destroy']);
 });
 
 Route::prefix('majors')->group(function () {
+    Route::get('',[MajorController::class,'index']);
     Route::post('',[MajorController::class,'create']);
+    Route::put('/{id}',[MajorController::class,'update']);
+    Route::delete('/{id}',[MajorController::class,'destroy']);
 });
 
 Route::prefix('major_and_specialize_names')->group(function () {

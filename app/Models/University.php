@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @method static create(array $array)
  * @method static active()
+ * @method static latest()
+ * @method static findOrFail(string $id)
  */
 class University extends Model
 {
@@ -32,6 +34,30 @@ class University extends Model
         return $this->belongsTo(UniversityType::class,'university_type_id');
     }
 
+    public function contact(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(ContactInformation::class,'contact_info_id');
+    }
+
+    public function province(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(AdrProvince::class,'adr_province_id');
+    }
+
+    public function district(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(AdrDistrict::class,'adr_district_id');
+    }
+
+    public function commune(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(AdrCommune::class,'adr_commune_id');
+    }
+
+    public function village(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return  $this->belongsTo(AdrVillage::class,'adr_commune_id');
+    }
     public function scopeSearch($query,$params)
     {
         $search = strtolower($params);
@@ -41,6 +67,11 @@ class University extends Model
     public function scopeActive($query)
     {
         return $query->where('is_active',true);
+    }
+
+    public function scopeIsActive($query,$param)
+    {
+        return $query->where('is_active',$param);
     }
 
     public function scopeProvince($query,$params)

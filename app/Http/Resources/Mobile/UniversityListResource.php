@@ -27,7 +27,8 @@ class UniversityListResource extends JsonResource
         return $this->only('id', 'name','graduation_rate','average_tuition','average_study_year') + [
                 'type_en' => $this->type->name_en ?? null,
                 'type_kh' => $this->type->name_kh ?? null,
-                'logo_image' => $this->logo_image ? url( $this->logo_image) : null,
+                'logo_image' => $this->logo_image ? UrlHelper::resolveUrl($this->logo_image,env('MINIO_BASE_URL',
+                    null)) : null,
                 'image' => $this->image ? UrlHelper::resolveUrl($this->image,env('MINIO_BASE_URL',null)) : null
             ];
     }

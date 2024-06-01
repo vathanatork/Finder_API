@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\v01;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class MajorRequest extends FormRequest
 {
@@ -13,16 +14,26 @@ class MajorRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'department_id' => 'integer',
             'institute_id' => 'integer',
             'university_id' => 'required|integer',
             'major_name_id' => 'required|integer',
             'description_en' => 'required|string',
             'description_kh' => 'required|string',
-            'curriculum_url' => 'string',
             'is_active' => 'boolean'
         ];
+
+        // If the request method is PUT or PATCH (i.e., update), change 'required' to 'sometimes'
+        if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
+            foreach ($rules as $key => $rule) {
+                if (is_string($rule) && Str::contains($rule, 'required')) {
+                    $rules[$key] = 'sometimes|' . Str::after($rule, 'required|');
+                }
+            }
+        }
+
+        return $rules;
     }
 
     public function getIsActive()

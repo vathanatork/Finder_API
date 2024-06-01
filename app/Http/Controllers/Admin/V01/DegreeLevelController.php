@@ -25,6 +25,7 @@ class DegreeLevelController extends Controller
         $validator = Validator::make($request->all(), [
             'is_active' => 'sometimes|boolean'
         ]);
+
         if(!$validator->fails())
         {
             $degree = $degree->active($request->input('is_active'));
@@ -52,8 +53,6 @@ class DegreeLevelController extends Controller
         $validator = Validator::make($request->all(),[
             'name_en' => 'required|string',
             'name_kh' => 'required|string',
-            'description_en' => 'string',
-            'description_kh' => 'string',
             'is_active' => 'sometimes|boolean'
         ]);
 
@@ -77,8 +76,6 @@ class DegreeLevelController extends Controller
         $validator = Validator::make($request->all(),[
             'name_en' => 'sometimes|string',
             'name_kh' => 'sometimes|string',
-            'description_en' => 'sometimes|string',
-            'description_kh' => 'sometimes|string',
             'is_active' => 'sometimes|boolean'
         ]);
 

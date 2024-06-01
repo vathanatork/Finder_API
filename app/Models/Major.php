@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @method static create(array $array)
  * @method static active()
+ * @method static latest()
+ * @method static findOrFail(string $id)
  */
 class Major extends Model
 {
@@ -36,4 +38,10 @@ class Major extends Model
     {
         return $query->where('is_active',true);
     }
+
+    public function scopeIsActive($query,$params)
+    {
+        return $query->where('is_active',$params);
+    }
+
 }
