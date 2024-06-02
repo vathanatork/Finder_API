@@ -13,6 +13,9 @@ Route::prefix('auth/user')->group(function () {
 
 Route::prefix('universities')->group(function () {
     Route::get('', [UniversityController::class, 'index']);
+    Route::get('/overview/{id}', [UniversityController::class, 'getOverview']);
+//    Route::get('/program/{id}', [UniversityController::class, 'getProgram']);
+//    Route::get('/major/{id}', [UniversityController::class, 'getMajor']);
 });
 
 Route::prefix('getFilter')->group(function () {
