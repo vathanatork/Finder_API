@@ -63,7 +63,10 @@ Route::prefix('majors')->group(function () {
 });
 
 Route::prefix('major_and_specialize_names')->group(function () {
+    Route::get('',[MajorAndSpecializeNameController::class,'index']);
     Route::post('',[MajorAndSpecializeNameController::class,'create']);
+    Route::get('/{id}',[MajorAndSpecializeNameController::class,'show']);
+    Route::put('/{id}',[MajorAndSpecializeNameController::class,'update']);
 });
 
 Route::prefix('degree_level_relation')->group(function () {

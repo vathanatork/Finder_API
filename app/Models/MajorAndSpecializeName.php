@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static create(array $array)
  * @method static active()
  * @method static find($id)
+ * @method static latest()
+ * @method static findOrFail(string $id)
  */
 class MajorAndSpecializeName extends Model
 {
@@ -19,8 +21,14 @@ class MajorAndSpecializeName extends Model
 
     protected $guarded = ['id'];
 
+
     public function scopeActive($query)
     {
         return $query->where('is_active',true);
+    }
+
+    public function scopeIsActive($query,$params)
+    {
+        return $query->where('is_active',$params);
     }
 }
