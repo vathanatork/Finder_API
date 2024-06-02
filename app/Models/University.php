@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use App\Http\Traits\Scope\AdrScopeTrait;
+use App\Http\Traits\Scope\UniversityScopeTait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -15,86 +19,50 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class University extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes, AdrScopeTrait, UniversityScopeTait;
 
     protected $guarded = ['id'];
 
-    public function majors(): \Illuminate\Database\Eloquent\Relations\HasMany
+    /** MODEL RELATION */
+
+    public function majors(): HasMany
     {
-        return $this->hasMany(Major::class,'university_id');
+        return $this->hasMany(Major::class, 'university_id');
     }
 
-    public function degreeLevels(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function degreeLevels(): BelongsToMany
     {
         return $this->belongsToMany(DegreeLevel::class, 'university_degree_levels');
     }
 
-    public function type(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function type(): BelongsTo
     {
-        return $this->belongsTo(UniversityType::class,'university_type_id');
+        return $this->belongsTo(UniversityType::class, 'university_type_id');
     }
 
-    public function contact(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function contact(): BelongsTo
     {
-        return $this->belongsTo(ContactInformation::class,'contact_info_id');
+        return $this->belongsTo(ContactInformation::class, 'contact_info_id');
     }
 
-    public function province(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function province(): BelongsTo
     {
-        return $this->belongsTo(AdrProvince::class,'adr_province_id');
+        return $this->belongsTo(AdrProvince::class, 'adr_province_id');
     }
 
-    public function district(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function district(): BelongsTo
     {
-        return $this->belongsTo(AdrDistrict::class,'adr_district_id');
+        return $this->belongsTo(AdrDistrict::class, 'adr_district_id');
     }
 
-    public function commune(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function commune(): BelongsTo
     {
-        return $this->belongsTo(AdrCommune::class,'adr_commune_id');
+        return $this->belongsTo(AdrCommune::class, 'adr_commune_id');
     }
 
-    public function village(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function village(): BelongsTo
     {
-        return  $this->belongsTo(AdrVillage::class,'adr_commune_id');
-    }
-    public function scopeSearch($query,$params)
-    {
-        $search = strtolower($params);
-        return $query->whereRaw('LOWER(name) COLLATE utf8mb4_general_ci LIKE ?', ['%' . $search . '%']);
+        return $this->belongsTo(AdrVillage::class, 'adr_commune_id');
     }
 
-    public function scopeActive($query)
-    {
-        return $query->where('is_active',true);
-    }
-
-    public function scopeIsActive($query,$param)
-    {
-        return $query->where('is_active',$param);
-    }
-
-    public function scopeProvince($query,$params)
-    {
-        return $query->where('adr_province_id',$params);
-    }
-
-    public function scopeType($query,$params)
-    {
-        return $query->where('university_type_id',$params);
-    }
-
-    public function scopeWhereDegree($query,$params)
-    {
-        return $query->whereHas('degreeLevels', function($query) use ($params) {
-            $query->where('degree_level_id', $params);
-        });
-    }
-
-    public function scopeWhereMajorName($query,$params)
-    {
-        return $query->whereHas('majors',function ($query) use ($params) {
-            $query->where('major_name_id',$params);
-        });
-    }
 }
