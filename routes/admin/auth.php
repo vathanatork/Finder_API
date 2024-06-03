@@ -74,3 +74,7 @@ Route::prefix('degree_level_relation')->group(function () {
     Route::post('/specialize',[DegreeLevelRelationController::class,'createSpecializeDegree']);
     Route::post('/university',[DegreeLevelRelationController::class,'createUniversityDegree']);
 });
+
+//Route::prefix('admissions')->group(function () {
+//    Route::post('','',);
+//});

@@ -21,7 +21,10 @@ class MajorResource extends JsonResource
     public function toArray(Request $request): array
     {
         return $this->only('id','department_id','institute_id','description_en','description_kh','tuition','study_duration','future_career_en','future_career_kh','student_number','required_credit','curriculum_url','is_active') + [
-            'university_name' => $this->university->name,
+            'university' => [
+                'id' => $this->university->id,
+                'name'=>$this->university->name
+            ],
             'major_name' => $this->majorName ? MajorListResource::make($this->majorName) : null
         ];
     }
