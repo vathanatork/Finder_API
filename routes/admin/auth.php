@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\V01\AdmissionsController;
 use App\Http\Controllers\Admin\V01\AdrController;
 use App\Http\Controllers\Admin\V01\AuthController;
 use App\Http\Controllers\Admin\V01\ContactInformationController;
@@ -75,6 +76,10 @@ Route::prefix('degree_level_relation')->group(function () {
     Route::post('/university',[DegreeLevelRelationController::class,'createUniversityDegree']);
 });
 
-//Route::prefix('admissions')->group(function () {
-//    Route::post('','',);
-//});
+Route::prefix('admissions')->group(function () {
+    Route::post('',[AdmissionsController::class,'create']);
+    Route::get('',[AdmissionsController::class,'index']);
+    Route::get('/{id}',[AdmissionsController::class,'show']);
+    Route::put('/{id}',[AdmissionsController::class,'update']);
+    Route::delete('/{id}',[AdmissionsController::class, 'destroy']);
+});
