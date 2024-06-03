@@ -10,27 +10,27 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        // Use raw SQL to rename the column
-        DB::statement('ALTER TABLE university_types CHANGE COLUMN name name_en VARCHAR(255)');
-
-        Schema::table('university_types', function (Blueprint $table) {
-            $table->string('name_kh')->after('name_en')->nullable();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        // Drop the new column added during the migration
-        Schema::table('university_types', function (Blueprint $table) {
-            $table->dropColumn('name_kh');
-        });
-
-        // Use raw SQL to rename the column back
-        DB::statement('ALTER TABLE university_types CHANGE COLUMN name_en name VARCHAR(255)');
-    }
+//    public function up(): void
+//    {
+//        // Use raw SQL to rename the column
+//        DB::statement('ALTER TABLE university_types CHANGE COLUMN name name_en VARCHAR(255)');
+//
+//        Schema::table('university_types', function (Blueprint $table) {
+//            $table->string('name_kh')->after('name_en')->nullable();
+//        });
+//    }
+//
+//    /**
+//     * Reverse the migrations.
+//     */
+//    public function down(): void
+//    {
+//        // Drop the new column added during the migration
+//        Schema::table('university_types', function (Blueprint $table) {
+//            $table->dropColumn('name_kh');
+//        });
+//
+//        // Use raw SQL to rename the column back
+//        DB::statement('ALTER TABLE university_types CHANGE COLUMN name_en name VARCHAR(255)');
+//    }
 };
