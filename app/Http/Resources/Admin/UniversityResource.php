@@ -54,8 +54,8 @@ class UniversityResource extends JsonResource
                 'contact' => $this->contact ? ContactResource::make($this->contact) : null,
                 'majors' => $this->majors->map(function($major) {
                     return [
-                        'id' => $major->id,
-                        'major_name' => MajorListResource::make($this->getMajorName($major->major_name_id))
+                        'id' => $major->id ?? null,
+                        'major_name' => MajorListResource::make($this->getMajorName($major->major_name_id)) ?? null
                     ];
                 }),
                 'province' => $this->province ? ProvinceResource::make($this->province) : null,
