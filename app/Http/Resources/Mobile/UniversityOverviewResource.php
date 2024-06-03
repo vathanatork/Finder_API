@@ -31,8 +31,7 @@ class UniversityOverviewResource extends UniversityListResource
         unset($data['type_en'],$data['type_kh'],$data['logo_image'], $data['image']);
 
         return $data + [
-                'description' => $this->description ? $this->generateHtmlUniversityDescription($this->description) :
-                    null,
+                'description' => $this->description ?? null,
                 'type' => $this->type ? UniversityTypeListResource::make($this->type) : null,
                 'study_option' => $this->degreeLevels ? DegreeLevelListResource::collection($this->degreeLevels) : null,
                 'contact' => $this->contact ? ContactResource::make($this->contact) : null

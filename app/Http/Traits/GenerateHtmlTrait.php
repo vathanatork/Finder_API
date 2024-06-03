@@ -2,8 +2,6 @@
 
 namespace App\Http\Traits;
 
-use TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
-
 trait  GenerateHtmlTrait
 {
     public function generateHtmlUniversityDescription(string $content): array|bool|string
@@ -20,13 +18,8 @@ trait  GenerateHtmlTrait
             $html = str_replace('<!--CONTENT-->', $content, $html);
         }
 
-        // Instantiate the CssToInlineStyles library
-        $cssToInlineStyles = new CssToInlineStyles();
-        $htmlWithInlineStyles = $cssToInlineStyles->convert($html);
-
-        // Optionally, replace double quotes and new lines
-        $htmlWithInlineStyles = $this->__replaceDoubleQuote($htmlWithInlineStyles);
-        return $this->__replaceSlashN($htmlWithInlineStyles);
+        $html = $this->__replaceDoubleQuote($html);
+        return  $this->__replaceSlashN($html);
     }
 
 
