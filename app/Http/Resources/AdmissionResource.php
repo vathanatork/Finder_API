@@ -31,8 +31,8 @@ class AdmissionResource extends JsonResource
             'is_active'
         ) + [
             'university' => [
-                'id' => $this->university->id,
-                'name' => $this->university->name
+                'id' => $this->university ? $this->university->id : null,
+                'name' => $this->university ? $this->university->name : null
             ],
             'contact' => $this->contact ? ContactResource::make($this->contact) : null,
         ];
