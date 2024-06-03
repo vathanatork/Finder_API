@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\v01\MajorRequest;
 use App\Http\Resources\Admin\MajorResource;
 use App\Http\Traits\Mobile\PaginateTrait;
 use App\Models\Major;
+use App\Models\MajorDegreeLevel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -52,7 +53,7 @@ class MajorController extends Controller
 
     public function create(MajorRequest $request): \Illuminate\Http\JsonResponse
     {
-        Major::create([
+        $major = Major::create([
             'department_id' => $request->getDepartmentId(),
             'institute_id' => $request->getInstituteId(),
             'university_id' => $request->getUniversityId(),
@@ -64,6 +65,18 @@ class MajorController extends Controller
             'is_active' => $request->getIsActive()
         ]);
 
+        if($request->getDegreeLevels())
+        {
+            foreach ($request->getDegreeLevels() as $degree)
+            {
+                MajorDegreeLevel::create([
+                    'major_id' => $major->id,
+                    'degree_level_id' => $degree,
+                    'is_active' => true
+                ]);
+            }
+        }
+
         $this->setCode(200);
         $this->setMessage('create major successfully');
         return $this->returnResults();
@@ -74,6 +87,18 @@ class MajorController extends Controller
         $major = Major::findOrFail($id);
         $updateData = $request->only('tuition','department_id','institute_id','university_id','major_name_id','description_en','description_kh','curriculum_url','is_active');
         $major->update($updateData);
+
+        if($request->getDegreeLevels())
+        {
+            foreach ($request->getDegreeLevels() as $degree)
+            {
+                MajorDegreeLevel::create([
+                    'major_id' => $id,
+                    'degree_level_id' => $degree,
+                    'is_active' => true
+                ]);
+            }
+        }
 
         $this->setCode(200);
         $this->setMessage('update major successfully');

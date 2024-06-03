@@ -22,7 +22,8 @@ class MajorRequest extends FormRequest
             'tuition' => 'required',
             'description_en' => 'required|string',
             'description_kh' => 'required|string',
-            'is_active' => 'boolean'
+            'is_active' => 'boolean',
+            'degree_levels' => 'required|array'
         ];
 
         // If the request method is PUT or PATCH (i.e., update), change 'required' to 'sometimes'
@@ -37,6 +38,10 @@ class MajorRequest extends FormRequest
         return $rules;
     }
 
+    public function getDegreeLevels()
+    {
+        return request()->degree_levels;
+    }
     public function getTuition()
     {
         return  request()->tuition;
