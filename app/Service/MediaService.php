@@ -57,8 +57,10 @@ class MediaService
         // Generate a unique filename.
         $filename = uniqid() . '-' . time() . '.' . $imageType;
 
-        // Define the directory path.
-        $dirSmallPath = 'uploads/' . $dir . '/' . date('Y') . '/' . date('m') . '/' . date('d') . '/';
+        $dirSmallPath = 'uploads/';
+
+//        // Define the directory path.
+//        $dirSmallPath = 'uploads/' . $dir . '/' . date('Y') . '/' . date('m') . '/' . date('d') . '/';
 
         // Create the directory if it doesn't exist.
         if (!is_dir(public_path($dirSmallPath))) {
