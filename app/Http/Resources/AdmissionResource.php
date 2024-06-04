@@ -20,6 +20,7 @@ class AdmissionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return $this->only(
+            'id',
             'average_student_acceptance',
             'application_deadline',
             'application_fee',
