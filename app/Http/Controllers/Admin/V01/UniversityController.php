@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\v01\University\CreateRequest;
 use App\Http\Resources\Admin\UniversityResource;
 use App\Http\Traits\Mobile\PaginateTrait;
 use App\Models\University;
+use App\Models\UniversityDegreeLevel;
 use App\Service\MediaService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -69,7 +70,19 @@ class UniversityController extends Controller
     public function create(CreateRequest $request): JsonResponse
     {
         $this->handleMediaUpload($request);
-        University::create($this->prepareData($request));
+        $university = University::create($this->prepareData($request));
+
+        if($request->getDegreeLevels())
+        {
+            foreach ($request->getDegreeLevels() as $degree)
+            {
+                UniversityDegreeLevel::create([
+                    'university_id' => $university->id,
+                    'degree_level_id' => $degree,
+                    'is_active' => true
+                ]);
+            }
+        }
 
         $this->setCode(200);
         $this->setMessage('create university successfully');
@@ -92,6 +105,19 @@ class UniversityController extends Controller
         $this->handleMediaUpload($request);
         $university = University::findOrFail($id);
         $university->update($this->prepareData($request));
+
+        if($request->getDegreeLevels())
+        {
+            UniversityDegreeLevel::where('university_id',$id)->delete();
+            foreach ($request->getDegreeLevels() as $degree)
+            {
+                UniversityDegreeLevel::create([
+                    'university_id' => $id,
+                    'degree_level_id' => $degree,
+                    'is_active' => true
+                ]);
+            }
+        }
 
         $this->setCode(200);
         $this->setMessage('update university successfully');

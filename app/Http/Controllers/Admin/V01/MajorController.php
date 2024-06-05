@@ -90,6 +90,8 @@ class MajorController extends Controller
 
         if($request->getDegreeLevels())
         {
+            MajorDegreeLevel::where('major_id', $id)->delete();
+
             foreach ($request->getDegreeLevels() as $degree)
             {
                 MajorDegreeLevel::create([

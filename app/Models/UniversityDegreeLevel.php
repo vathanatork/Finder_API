@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static create(array $createData)
+ * @method static where(string $string, string $id)
  */
 class UniversityDegreeLevel extends Model
 {
