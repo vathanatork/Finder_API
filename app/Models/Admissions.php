@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static create(array $array)
  * @method static findOrFail(string $id)
  * @method static latest()
+ * @method static where(string $string, string $id)
  */
 class Admissions extends Model
 {

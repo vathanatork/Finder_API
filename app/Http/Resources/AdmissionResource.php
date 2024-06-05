@@ -8,7 +8,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 /**
  * @property mixed $contact
  * @property mixed $university
- * @method only(string $string, string $string1, string $string2, string $string3, string $string4, string $string5, string $string6, string $string7, string $string8)
+ * @method only(string $string, string $string1, string $string2, string $string3, string $string4, string $string5,string $string6, string $string7, string $string8, string $sting9)
  */
 class AdmissionResource extends JsonResource
 {
