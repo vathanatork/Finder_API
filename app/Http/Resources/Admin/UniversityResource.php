@@ -8,6 +8,7 @@ use App\Http\Resources\Admin\Configuration\DistrictResource;
 use App\Http\Resources\Admin\Configuration\ProvinceResource;
 use App\Http\Resources\Admin\Configuration\VillageResource;
 use App\Http\Resources\ContactResource;
+use App\Http\Resources\DegreeLevelListResource;
 use App\Http\Resources\MajorListResource;
 use App\Http\Resources\UniversityTypeListResource;
 use App\Models\MajorAndSpecializeName;
@@ -25,6 +26,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property mixed $commune
  * @property mixed $village
  * @property mixed $majors
+ * @property mixed $degreeLevels
  */
 class UniversityResource extends JsonResource
 {
@@ -52,6 +54,9 @@ class UniversityResource extends JsonResource
                 'image' => $this->image ? UrlHelper::resolveUrl($this->image,env('MINIO_BASE_URL',null)) : null,
                 'type' => $this->type ? UniversityTypeListResource::make($this->type) : null,
                 'contact' => $this->contact ? ContactResource::make($this->contact) : null,
+                'degree_levels' => $this->degreeLevels ? DegreeLevelListResource::collection
+                ($this->degreeLevels) :
+                    null,
                 'majors' => $this->majors->map(function($major) {
                     return [
                         'id' => $major->id ?? null,

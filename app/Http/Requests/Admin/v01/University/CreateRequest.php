@@ -30,7 +30,8 @@ class CreateRequest extends FormRequest
                 'adr_district_id' => 'integer',
                 'adr_commune_id' => 'integer',
                 'adr_village_id' => 'integer',
-                'is_active' => 'boolean'
+                'is_active' => 'boolean',
+                'degree_levels' => 'required|array'
             ];
 
             // If the request method is PUT or PATCH (i.e., update), change 'required' to 'sometimes'
@@ -43,6 +44,11 @@ class CreateRequest extends FormRequest
             }
 
             return $rules;
+        }
+
+        public function getDegreeLevels()
+        {
+            return request()->degree_levels;
         }
 
         public function getName()

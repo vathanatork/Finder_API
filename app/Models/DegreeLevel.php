@@ -23,6 +23,11 @@ class DegreeLevel extends Model
         return $this->belongsToMany(University::class, 'university_degree_levels');
     }
 
+    public function majors(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Major::class, 'major_degree_levels');
+    }
+
     public function scopeActive($query,$params)
     {
         return $query->where('is_active',$params);

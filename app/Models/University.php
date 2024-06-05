@@ -32,7 +32,7 @@ class University extends Model
 
     public function degreeLevels(): BelongsToMany
     {
-        return $this->belongsToMany(DegreeLevel::class, 'university_degree_levels');
+        return $this->belongsToMany(DegreeLevel::class, 'university_degree_levels')->wherePivotNull('deleted_at');
     }
 
     public function type(): BelongsTo
