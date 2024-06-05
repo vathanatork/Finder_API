@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Mobile\V01;
 
 use App\Http\Requests\Mobile\V01\UniversityRequest;
+use App\Http\Resources\Mobile\MobileAdmissionResource;
 use App\Http\Resources\Mobile\UniversityListResource;
 use App\Http\Resources\Mobile\UniversityOverviewResource;
 use App\Http\Traits\Mobile\PaginateTrait;
+use App\Models\Admissions;
 use App\Models\University;
 
 
@@ -42,4 +44,15 @@ class UniversityController extends Controller
         $this->setResult('data',UniversityOverviewResource::make($university));
         return $this->returnResults();
     }
+
+    public function getAdmission(string $id): \Illuminate\Http\JsonResponse
+    {
+        $admission = Admissions::where('university_id',$id)->get();
+
+        $this->setCode(200);
+        $this->setMessage("Success");
+        $this->setResult('data',MobileAdmissionResource::collection($admission));
+        return $this->returnResults();
+    }
+
 }
