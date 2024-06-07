@@ -22,7 +22,6 @@ class ScholarShipRequest extends FormRequest
             'image' => 'required',
             'description_en'=> 'required|string',
             'description_kh' => 'required|string',
-            'contact_info_id' => 'integer',
             'is_active' => 'boolean'
         ];
 
