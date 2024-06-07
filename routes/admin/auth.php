@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\V01\DegreeLevelController;
 use App\Http\Controllers\Admin\V01\DegreeLevelRelationController;
 use App\Http\Controllers\Admin\V01\MajorAndSpecializeNameController;
 use App\Http\Controllers\Admin\V01\MajorController;
+use App\Http\Controllers\Admin\V01\ScholarshipController;
 use App\Http\Controllers\Admin\V01\UniversityController;
 use App\Http\Controllers\Admin\V01\UniversityTypeController;
 use Illuminate\Support\Facades\Route;
@@ -82,4 +83,12 @@ Route::prefix('admissions')->group(function () {
     Route::get('/{id}',[AdmissionsController::class,'show']);
     Route::put('/{id}',[AdmissionsController::class,'update']);
     Route::delete('/{id}',[AdmissionsController::class, 'destroy']);
+});
+
+Route::prefix('scholarShips')->group(function () {
+    Route::post('',[ScholarshipController::class,'create']);
+    Route::get('',[ScholarshipController::class,'index']);
+    Route::get('/{id}',[ScholarshipController::class,'show']);
+    Route::put('/{id}',[ScholarshipController::class,'update']);
+    Route::delete('/{id}',[ScholarshipController::class, 'destroy']);
 });
