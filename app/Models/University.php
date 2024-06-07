@@ -35,6 +35,10 @@ class University extends Model
         return $this->belongsToMany(DegreeLevel::class, 'university_degree_levels')->wherePivotNull('deleted_at');
     }
 
+    public function scholarShip(): BelongsTo
+    {
+        return $this->belongsTo(Scholarship::class,'scholarship_id');
+    }
     public function type(): BelongsTo
     {
         return $this->belongsTo(UniversityType::class, 'university_type_id');
