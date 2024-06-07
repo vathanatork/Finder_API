@@ -15,8 +15,8 @@ class MajorRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'department_id' => 'integer',
-            'institute_id' => 'integer',
+            'department_id' => 'nullable|integer',
+            'institute_id' => 'nullable|integer',
             'university_id' => 'required|integer',
             'major_name_id' => 'required|integer',
             'tuition' => 'required',
@@ -52,17 +52,17 @@ class MajorRequest extends FormRequest
     }
     public function getDepartmentId()
     {
-        return request()->department_id ?? null;
+        return request()->department_id ?: null;
     }
 
     public function getInstituteId()
     {
-        return request()->institute_id ?? null;
+        return request()->institute_id ?: null;
     }
 
     public function getUniversityId()
     {
-        return request()->university_id ?? null;
+        return request()->university_id ;
     }
 
     public function getMajorNameId()

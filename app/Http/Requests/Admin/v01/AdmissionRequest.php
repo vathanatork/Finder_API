@@ -17,11 +17,13 @@ class AdmissionRequest extends FormRequest
         $rules =  [
             'university_id' => 'required',
             'average_student_acceptance' => 'integer',
-            'application_deadline' => 'date',
+            'application_deadline' => 'nullable|date',
             'description_en' => 'required|string',
             'description_kh' => 'required|string',
-            'is_active' => 'boolean'
+            'is_active' => 'boolean',
+            'contact_info_id' => 'nullable|integer'
         ];
+
         // If the request method is PUT or PATCH (i.e., update), change 'required' to 'sometimes'
         if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
             foreach ($rules as $key => $rule) {
@@ -49,7 +51,7 @@ class AdmissionRequest extends FormRequest
 
     public function getApplicationDeadline()
     {
-        return request()->application_deadline;
+        return request()->application_deadline ?: null;
     }
 
     public function getDescriptionEn()
@@ -83,7 +85,7 @@ class AdmissionRequest extends FormRequest
 
     public function getContact()
     {
-        return request()->contact_info_id;
+        return request()->contact_info_id ?: null;
     }
 
 }
