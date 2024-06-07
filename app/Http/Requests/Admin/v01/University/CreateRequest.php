@@ -23,13 +23,13 @@ class CreateRequest extends FormRequest
                 'image' => 'required|string',
                 'description' => 'required|string',
                 'university_type_id' => 'required|integer',
-                'established_year' => 'integer',
-                'ranking' => 'integer',
-                'contact_info_id' => 'integer',
+                'established_year' => 'required|integer',
+                'ranking' => 'required|integer',
+                'contact_info_id' => 'required|integer',
                 'adr_province_id' => 'required|integer',
-                'adr_district_id' => 'integer',
-                'adr_commune_id' => 'integer',
-                'adr_village_id' => 'integer',
+                'adr_district_id' => 'nullable|integer',
+                'adr_commune_id' => 'nullable|integer',
+                'adr_village_id' => 'nullable|integer',
                 'is_active' => 'boolean',
                 'degree_levels' => 'required|array'
             ];
@@ -137,17 +137,17 @@ class CreateRequest extends FormRequest
 
         public function getDistrictId()
         {
-            return request()->adr_district_id;
+            return request()->adr_district_id ?: null;
         }
 
         public function getCommuneId()
         {
-            return request()->adr_commune_id;
+            return request()->adr_commune_id ?: null ;
         }
 
         public function getVillageId()
         {
-            return request()->adr_village_id;
+            return request()->adr_village_id ?: null;
         }
 
         public function getIsActive():bool

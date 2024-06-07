@@ -22,7 +22,8 @@ class ScholarShipRequest extends FormRequest
             'image' => 'required',
             'description_en'=> 'required|string',
             'description_kh' => 'required|string',
-            'is_active' => 'boolean'
+            'is_active' => 'boolean',
+            'contact_info_id' => 'nullable|integer'
         ];
 
         // If the request method is PUT or PATCH (i.e., update), change 'required' to 'sometimes'
@@ -69,7 +70,7 @@ class ScholarShipRequest extends FormRequest
 
     public function getContact()
     {
-        return request()->contact_info_id;
+        return request()->contact_info_id ?: null;
     }
 
     public function getApplyLink()
