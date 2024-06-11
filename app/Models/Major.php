@@ -33,6 +33,11 @@ class Major extends Model
         return $this->belongsToMany(DegreeLevel::class, 'major_degree_levels')->wherePivotNull('deleted_at');
     }
 
+    public function specialize(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Specialize::class, 'major_id');
+    }
+
     public function scopeSearch($query,$params)
     {
         $search = strtolower($params);

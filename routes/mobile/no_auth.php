@@ -3,6 +3,7 @@
 use App\Http\Controllers\Mobile\V01\AuthController;
 use App\Http\Controllers\Mobile\V01\GetFilterListController;
 use App\Http\Controllers\Mobile\V01\UniversityController;
+use App\Http\Controllers\Mobile\V01\UniversityProgramController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth/user')->group(function () {
@@ -15,7 +16,7 @@ Route::prefix('universities')->group(function () {
     Route::get('', [UniversityController::class, 'index']);
     Route::get('/overview/{id}', [UniversityController::class, 'getOverview']);
     Route::get('/admission/{id}', [UniversityController::class, 'getAdmission']);
-//    Route::get('/program/{id}', [UniversityController::class, 'getProgram']);
+    Route::get('/program/{id}', [UniversityProgramController::class, 'getProgram']);
 //    Route::get('/major/{id}', [UniversityController::class, 'getMajor']);
 });
 
