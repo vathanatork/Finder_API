@@ -22,6 +22,10 @@ class DegreeLevel extends Model
     {
         return $this->belongsToMany(University::class, 'university_degree_levels');
     }
+    public function specializes(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Specialize::class, 'specialize_degree_levels');
+    }
 
     public function majors(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
