@@ -34,6 +34,12 @@ class UniversityProgramResource extends JsonResource
 }
 
 
+/**
+ * @property mixed $majorName
+ * @property mixed $is_active
+ * @property mixed $id
+ * @method relationLoaded(string $string)
+ */
 class MajorResource extends JsonResource
 {
     /**
@@ -60,7 +66,12 @@ class MajorResource extends JsonResource
 }
 
 
-
+/**
+ * @method relationLoaded(string $string)
+ * @property mixed $specializeName
+ * @property mixed $is_active
+ * @property mixed $id
+ */
 class SpecializeResource extends JsonResource
 {
     /**
