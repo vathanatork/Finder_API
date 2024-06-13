@@ -17,6 +17,8 @@ Route::prefix('universities')->group(function () {
     Route::get('/overview/{id}', [UniversityController::class, 'getOverview']);
     Route::get('/admission/{id}', [UniversityController::class, 'getAdmission']);
     Route::get('/program/{id}', [UniversityProgramController::class, 'getProgram']);
+    Route::get('/program/major/detail/{id}',[UniversityProgramController::class, 'getMajorProgramDetail']);
+    Route::get('/program/specialize/detail/{id}',[UniversityProgramController::class, 'getSpecializeProgramDetail']);
 //    Route::get('/major/{id}', [UniversityController::class, 'getMajor']);
 });
 
