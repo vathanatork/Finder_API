@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Mobile\V01;
 
+use App\Http\Resources\Mobile\ProgramMajorDetail;
 use App\Http\Resources\Mobile\UniversityProgramResource;
+use App\Models\Major;
+use App\Models\Specialize;
 use App\Models\University;
 use Illuminate\Http\Request;
 
@@ -36,6 +39,26 @@ class UniversityProgramController extends Controller
         $this->setCode(200);
         $this->setMessage("Success");
         $this->setResult('data',UniversityProgramResource::make($university));
+        return $this->returnResults();
+    }
+
+    public function getMajorProgramDetail(string $id): \Illuminate\Http\JsonResponse
+    {
+        $programDetail = Major::findOrFail($id);
+
+        $this->setCode(200);
+        $this->setMessage("Success");
+        $this->setResult('data',ProgramMajorDetail::make($programDetail));
+        return $this->returnResults();
+    }
+
+    public function getSpecializeProgramDetail(string $id): \Illuminate\Http\JsonResponse
+    {
+        $programDetail = Specialize::findOrFail($id);
+
+        $this->setCode(200);
+        $this->setMessage("Success");
+        $this->setResult('data',ProgramMajorDetail::make($programDetail));
         return $this->returnResults();
     }
 }
