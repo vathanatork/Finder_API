@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\V01;
 use App\Constants\Enum\StatusCodeEnum;
 use App\Helpers\CoreBase;
 use App\Http\Requests\Admin\v01\ScholarShipRequest;
-use App\Http\Resources\ScholarShipResource;
+use App\Http\Resources\Mobile\ScholarShipResource;
 use App\Http\Traits\Mobile\PaginateTrait;
 use App\Models\Scholarship;
 use App\Service\MediaService;
@@ -67,6 +67,8 @@ class ScholarshipController extends Controller
             'image_url' => $request->getImageUrl(),
             'description_en' => $request->getDescriptionEn(),
             'description_kh' => $request->getDescriptionKh(),
+            'other_en' => $request->getDetailEn(),
+            'other_kh' => $request->getDetailKh(),
             'contact_info_id' => $request->getContact(),
             'apply_link' => $request->getApplyLink(),
             'is_active' => $request->getIsActive() ?? 1,
@@ -105,7 +107,7 @@ class ScholarshipController extends Controller
             'apply_link',
             'is_active',
             'open_date',
-            'close_date'
+            'close_date',
         );
 
         if($request->filled('image'))
@@ -113,6 +115,15 @@ class ScholarshipController extends Controller
             $updateData['image_url'] = $request->getImageUrl();
         }
 
+        if($request->filled('detail_en'))
+        {
+            $updateData['other_en'] = $request->getDetailEn();
+        }
+
+        if($request->filled('detail_kh'))
+        {
+            $updateData['other_kh'] = $request->getDetailKh();
+        }
         $scholar->update($updateData);
 
         $this->setCode(200);
