@@ -9,7 +9,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 /**
  * @property mixed $image_url
  * @property mixed $university
- * @method only(string $string, string $string1, string $string2, string $string3, string $string4, string $string5, string $string6, string $string7)
+ * @property mixed $contact
+ * @method only(string $string, string $string1, string $string2, string $string3, string $string4, string $string5, string $string6, string $string7, string $string8, string $string9)
  */
 class ScholarShipResource extends JsonResource
 {
@@ -28,7 +29,9 @@ class ScholarShipResource extends JsonResource
             'description_kh',
             'contact_info_id',
             'apply_link',
-            'is_active'
+            'is_active',
+            'open_date',
+            'close_date'
         ) + [
             'contact' => $this->contact ? ContactResource::make($this->contact) : ContactResource::make
             ($this->university->contact),
