@@ -23,7 +23,9 @@ class ScholarShipRequest extends FormRequest
             'description_en'=> 'required|string',
             'description_kh' => 'required|string',
             'is_active' => 'boolean',
-            'contact_info_id' => 'nullable|integer'
+            'contact_info_id' => 'nullable|integer',
+            'open_date' => 'required|date',
+            'close_date' => 'required|date'
         ];
 
         // If the request method is PUT or PATCH (i.e., update), change 'required' to 'sometimes'
@@ -38,6 +40,15 @@ class ScholarShipRequest extends FormRequest
         return $rules;
     }
 
+    public function getOpenDate()
+    {
+        return request()->open_date;
+    }
+
+    public function getCloseDate()
+    {
+        return request()->close_date;
+    }
     public function getUniversityId()
     {
         return request()->university_id;

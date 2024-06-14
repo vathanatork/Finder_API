@@ -69,7 +69,9 @@ class ScholarshipController extends Controller
             'description_kh' => $request->getDescriptionKh(),
             'contact_info_id' => $request->getContact(),
             'apply_link' => $request->getApplyLink(),
-            'is_active' => $request->getIsActive() ?? 1
+            'is_active' => $request->getIsActive() ?? 1,
+            'open_date' => $request->getOpenDate(),
+            'close_date' => $request->getCloseDate()
 
         ]);
 
@@ -101,7 +103,9 @@ class ScholarshipController extends Controller
             'description_kh',
             'contact_info_id',
             'apply_link',
-            'is_active'
+            'is_active',
+            'open_date',
+            'close_date'
         );
 
         if($request->filled('image'))
