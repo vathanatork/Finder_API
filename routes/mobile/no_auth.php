@@ -16,10 +16,12 @@ Route::prefix('universities')->group(function () {
     Route::get('', [UniversityController::class, 'index']);
     Route::get('/overview/{id}', [UniversityController::class, 'getOverview']);
     Route::get('/admission/{id}', [UniversityController::class, 'getAdmission']);
-    Route::get('/program/{id}', [UniversityProgramController::class, 'getProgram']);
-    Route::get('/program/major/detail/{id}',[UniversityProgramController::class, 'getMajorProgramDetail']);
+    Route::get('program/degreeLevel/{id}', [UniversityProgramController::class, 'getProgramDegreeLevel']);
+    Route::get('program/major/{id}', [UniversityProgramController::class, 'getProgramMajor']);
+    Route::get('program/specialize/{id}',[UniversityProgramController::class, 'getProgramSpecialize']);
+    Route::get('/program/major/detail/{id}',[UniversityProgramController::class, 'getMajorProgramDetail']); // major id
     Route::get('/program/specialize/detail/{id}',[UniversityProgramController::class, 'getSpecializeProgramDetail']);
-//    Route::get('/major/{id}', [UniversityController::class, 'getMajor']);
+    //specialize id
 });
 
 Route::prefix('getFilter')->group(function () {

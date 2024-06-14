@@ -39,6 +39,7 @@ class University extends Model
     {
         return $this->belongsTo(Scholarship::class,'scholarship_id');
     }
+
     public function type(): BelongsTo
     {
         return $this->belongsTo(UniversityType::class, 'university_type_id');
