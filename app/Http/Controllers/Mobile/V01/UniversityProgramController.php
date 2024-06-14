@@ -80,11 +80,6 @@ class UniversityProgramController extends Controller
 
         $universityQuery = University::with([
             'majors' => function ($query) use ($degreeLevelId) {
-                if ($degreeLevelId) {
-                    $query->whereHas('degreeLevels', function ($query) use ($degreeLevelId) {
-                        $query->where('degree_levels.id', $degreeLevelId);
-                    });
-                }
                 $query->with(['majorName', 'specialize' => function ($query) use ($degreeLevelId) {
                     if ($degreeLevelId) {
                         $query->whereHas('degreeLevels', function ($query) use ($degreeLevelId) {

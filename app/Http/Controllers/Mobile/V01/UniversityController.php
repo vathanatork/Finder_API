@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mobile\V01;
 
 use App\Http\Requests\Mobile\V01\UniversityRequest;
 use App\Http\Resources\Mobile\MobileAdmissionResource;
+use App\Http\Resources\Mobile\TuitionResource;
 use App\Http\Resources\Mobile\UniversityListResource;
 use App\Http\Resources\Mobile\UniversityOverviewResource;
 use App\Http\Traits\Mobile\PaginateTrait;
@@ -55,4 +56,13 @@ class UniversityController extends Controller
         return $this->returnResults();
     }
 
+    public function getTuition(string $id): \Illuminate\Http\JsonResponse
+    {
+        $tuition = University::with('majors','majors.specialize')->findOrFail($id);
+
+        $this->setCode(200);
+        $this->setMessage("Success");
+        $this->setResult('data',TuitionResource::make($tuition));
+        return $this->returnResults();
+    }
 }

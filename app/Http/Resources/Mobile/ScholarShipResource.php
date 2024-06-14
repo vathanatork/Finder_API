@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Mobile;
 
 use App\Helpers\UrlHelper;
+use App\Http\Resources\ContactResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -10,6 +11,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property mixed $image_url
  * @property mixed $university
  * @property mixed $contact
+ * @property mixed $other_kh
+ * @property mixed $other_en
  * @method only(string $string, string $string1, string $string2, string $string3, string $string4, string $string5, string $string6, string $string7, string $string8, string $string9)
  */
 class ScholarShipResource extends JsonResource
@@ -33,6 +36,8 @@ class ScholarShipResource extends JsonResource
             'open_date',
             'close_date'
         ) + [
+            'detail_en' => $this->other_en,
+            "detail_kh" => $this->other_kh,
             'contact' => $this->contact ? ContactResource::make($this->contact) : ContactResource::make
             ($this->university->contact),
            'university' => [

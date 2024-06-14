@@ -22,6 +22,8 @@ class ScholarShipRequest extends FormRequest
             'image' => 'required',
             'description_en'=> 'required|string',
             'description_kh' => 'required|string',
+            'detail_en' => 'required|string',
+            'detail_kh' => 'required|string',
             'is_active' => 'boolean',
             'contact_info_id' => 'nullable|integer',
             'open_date' => 'required|date',
@@ -40,6 +42,15 @@ class ScholarShipRequest extends FormRequest
         return $rules;
     }
 
+    public function getDetailEn()
+    {
+        return request()->detail_en;
+    }
+
+    public function getDetailKh()
+    {
+        return request()->detail_kh;
+    }
     public function getOpenDate()
     {
         return request()->open_date;
