@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\V01\DegreeLevelController;
 use App\Http\Controllers\Admin\V01\DegreeLevelRelationController;
 use App\Http\Controllers\Admin\V01\EditorHandlerController;
 use App\Http\Controllers\Admin\V01\EventCategoryController;
+use App\Http\Controllers\Admin\V01\EventController;
 use App\Http\Controllers\Admin\V01\MajorAndSpecializeNameController;
 use App\Http\Controllers\Admin\V01\MajorController;
 use App\Http\Controllers\Admin\V01\ScholarshipController;
@@ -104,10 +105,11 @@ Route::prefix('event_categories')->group(function () {
     Route::put('/{id}',[EventCategoryController::class,'update']);
 });
 
-//Route::prefix('events')->group(function () {
-//    Route::post('',[EventCategoryController::class,'create']);
-//    Route::get('',[EventCategoryController::class,'index']);
-//    Route::get('/{id}',[EventCategoryController::class,'show']);
-//    Route::put('/{id}',[EventCategoryController::class,'update']);
-//});
+Route::prefix('events')->group(function () {
+    Route::post('',[EventController::class,'create']);
+    Route::get('',[EventController::class,'index']);
+    Route::get('/{id}',[EventController::class,'show']);
+    Route::put('/{id}',[EventController::class,'update']);
+    Route::delete('/{id}',[EventController::class,'destroy']);
+});
 
