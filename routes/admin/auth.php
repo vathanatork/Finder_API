@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\V01\AuthController;
 use App\Http\Controllers\Admin\V01\ContactInformationController;
 use App\Http\Controllers\Admin\V01\DegreeLevelController;
 use App\Http\Controllers\Admin\V01\DegreeLevelRelationController;
+use App\Http\Controllers\Admin\V01\EventCategoryController;
 use App\Http\Controllers\Admin\V01\MajorAndSpecializeNameController;
 use App\Http\Controllers\Admin\V01\MajorController;
 use App\Http\Controllers\Admin\V01\ScholarshipController;
@@ -92,3 +93,11 @@ Route::prefix('scholarShips')->group(function () {
     Route::put('/{id}',[ScholarshipController::class,'update']);
     Route::delete('/{id}',[ScholarshipController::class, 'destroy']);
 });
+
+Route::prefix('event_categories')->group(function () {
+    Route::post('',[EventCategoryController::class,'create']);
+    Route::get('',[EventCategoryController::class,'index']);
+    Route::get('/{id}',[EventCategoryController::class,'show']);
+    Route::put('/{id}',[EventCategoryController::class,'update']);
+});
+
