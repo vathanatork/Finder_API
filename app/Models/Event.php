@@ -12,6 +12,12 @@ class Event extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'start_at' => 'datetime: H:i',
+        'end_at' => 'datetime: H:i'
+    ];
+
+
     public function eventCategory(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(EventCategory::class,'event_category_id');
