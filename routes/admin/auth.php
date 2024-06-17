@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\V01\AuthController;
 use App\Http\Controllers\Admin\V01\ContactInformationController;
 use App\Http\Controllers\Admin\V01\DegreeLevelController;
 use App\Http\Controllers\Admin\V01\DegreeLevelRelationController;
+use App\Http\Controllers\Admin\V01\EditorHandlerController;
 use App\Http\Controllers\Admin\V01\EventCategoryController;
 use App\Http\Controllers\Admin\V01\MajorAndSpecializeNameController;
 use App\Http\Controllers\Admin\V01\MajorController;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('auth/admin')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
 });
+
+Route::post('/editor/upload_image',[EditorHandlerController::class,'uploadImage']);
 
 Route::prefix('university_types')->group(function () {
     Route::post('',[UniversityTypeController::class,'create']);
@@ -100,4 +103,11 @@ Route::prefix('event_categories')->group(function () {
     Route::get('/{id}',[EventCategoryController::class,'show']);
     Route::put('/{id}',[EventCategoryController::class,'update']);
 });
+
+//Route::prefix('events')->group(function () {
+//    Route::post('',[EventCategoryController::class,'create']);
+//    Route::get('',[EventCategoryController::class,'index']);
+//    Route::get('/{id}',[EventCategoryController::class,'show']);
+//    Route::put('/{id}',[EventCategoryController::class,'update']);
+//});
 
