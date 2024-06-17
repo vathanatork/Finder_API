@@ -7,11 +7,13 @@ class TimeHelper
 {
     public static function formatTimeTo12Hour($time): string
     {
-        // Create a Carbon instance from the provided time string
-        $dateTime = Carbon::createFromFormat('H:i', $time);
+        return $time->format('h:i A');
+    }
 
+    public static function formatTimeToHI($time): string
+    {
         // Format the Carbon instance to the desired format
-        return $dateTime->format('h:i A');
+        return $time->format('h:i');
     }
 
 }

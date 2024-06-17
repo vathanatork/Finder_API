@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @method static create(array $array)
+ * @method static findOrFail(string $id)
+ * @method static latest()
+ */
 class Event extends Model
 {
     use HasFactory,SoftDeletes;
@@ -28,4 +33,8 @@ class Event extends Model
         return $this->belongsTo(University::class,'university_id');
     }
 
+    public function scopeIsActive($query,$param)
+    {
+        return $query->where('is_active',$param);
+    }
 }

@@ -15,11 +15,9 @@ class AdrController extends Controller
     public function province(): \Illuminate\Http\JsonResponse
     {
         $provinces = AdrProvince::all();
-
         if (empty($provinces)) {
             $this->returnError(__('province not found'), 404);
         }
-
         $this->setCode(200);
         $this->setMessage('OK');
         $this->setResult('provinces', ProvinceResource::collection($provinces));
@@ -29,11 +27,9 @@ class AdrController extends Controller
     public function district(string $id): \Illuminate\Http\JsonResponse
     {
         $districts = AdrDistrict::where('adr_province_id', $id)->get();
-
         if (empty($districts)) {
             $this->returnError(__('district not found'), 404);
         }
-
         $this->setCode(200);
         $this->setMessage('OK');
         $this->setResult('districts', DistrictResource::collection($districts));
@@ -43,11 +39,9 @@ class AdrController extends Controller
     public function commune(string $id): \Illuminate\Http\JsonResponse
     {
         $communes = AdrCommune::where('adr_district_id', $id)->get();
-
         if (empty($communes)) {
             $this->returnError(__('district not found'), 404);
         }
-
         $this->setCode(200);
         $this->setMessage('OK');
         $this->setResult('communes', DistrictResource::collection($communes));
@@ -57,11 +51,9 @@ class AdrController extends Controller
     public function village(string $id): \Illuminate\Http\JsonResponse
     {
         $village = AdrVillage::where('adr_commune_id', $id)->get();
-
         if (empty($village)) {
             $this->returnError(__('district not found'), 404);
         }
-
         $this->setCode(200);
         $this->setMessage('OK');
         $this->setResult('villages', VillageResource::collection($village));
