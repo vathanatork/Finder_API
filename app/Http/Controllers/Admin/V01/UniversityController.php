@@ -139,7 +139,11 @@ class UniversityController extends Controller
         $data = [];
 
         if ($request->filled('name')) {
-            $data['name'] = $request->getName();
+            $data['name_en'] = $request->getName();
+        }
+        if($request->filled('name_kh'))
+        {
+            $data['name_kh'] = $request->getNamekh();
         }
         if ($request->filled('logo_image')) {
             $data['logo_image'] = $request->getLogoImageUrl();
@@ -148,7 +152,10 @@ class UniversityController extends Controller
             $data['image'] = $request->getImageUrl();
         }
         if ($request->filled('description')) {
-            $data['description'] = $request->getDescription();
+            $data['description_en'] = $request->getDescription();
+        }
+        if ($request->filled('description_kh')) {
+            $data['description_kh'] = $request->getDescriptionKh();
         }
         if ($request->filled('university_type_id')) {
             $data['university_type_id'] = $request->getUniversityTypeId();
@@ -172,7 +179,10 @@ class UniversityController extends Controller
             $data['average_study_year'] = $request->getAverageStudyYear();
         }
         if ($request->filled('address')) {
-            $data['address'] = $request->getAddress();
+            $data['address_en'] = $request->getAddress();
+        }
+        if ($request->filled('address_kh')) {
+            $data['address_kh'] = $request->getAddressKh();
         }
         if ($request->filled('adr_province_id')) {
             $data['adr_province_id'] = $request->getProvinceId();

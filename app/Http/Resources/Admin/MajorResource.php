@@ -25,7 +25,8 @@ class MajorResource extends JsonResource
         return $this->only('id','department_id','institute_id','description_en','description_kh','tuition','study_duration','future_career_en','future_career_kh','student_number','required_credit','curriculum_url','is_active') + [
             'university' => [
                 'id' => $this->university ? $this->university->id : null,
-                'name'=>$this->university ? $this->university->name : null
+                'name'=>$this->university ? $this->university->name_en : null,
+                'name_kh' =>$this->university ? $this->university->name_kh : null
             ],
             'degree_levels' => $this->degreeLevels ? DegreeLevelListResource::collection($this->degreeLevels) : null,
             'major_name' => $this->majorName ? MajorListResource::make($this->majorName) : null

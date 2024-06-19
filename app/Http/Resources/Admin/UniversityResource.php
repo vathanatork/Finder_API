@@ -16,7 +16,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- * @method only(string $string, string $string1, string $string2, string $string3, string $string4, string $string5, string $string6, string $string7, string $string8)
  * @property mixed $logo_image
  * @property mixed $image
  * @property mixed $type
@@ -27,6 +26,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property mixed $village
  * @property mixed $majors
  * @property mixed $degreeLevels
+ * @method only(string $string, string $string1, string $string2, string $string3, string $string4, string $string5, string $string6)
  */
 class UniversityResource extends JsonResource
 {
@@ -39,16 +39,19 @@ class UniversityResource extends JsonResource
     {
         return $this->only(
             'id',
-            'name',
-            'description',
             'established_year',
             'ranking',
             'graduation_rate',
             'average_tuition',
             'average_study_year',
-            'address',
             'is_active'
         ) + [
+                'name' => $this->name_en ?? null,
+                'name_kh' => $this->name_kh ?? null,
+                'description'=> $this->description_en ?? null,
+                'description_kh' => $this->description_kh ?? null,
+                'address'=> $this->address_en ?? null,
+                'address_kh' => $this->address_kh ?? null,
                 'logo_image' => $this->logo_image ? UrlHelper::resolveUrl($this->logo_image,env('MINIO_BASE_URL',
                     null)) : null,
                 'image' => $this->image ? UrlHelper::resolveUrl($this->image,env('MINIO_BASE_URL',null)) : null,
