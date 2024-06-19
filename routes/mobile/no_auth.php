@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Mobile\V01\AuthController;
+use App\Http\Controllers\Mobile\V01\EventController;
 use App\Http\Controllers\Mobile\V01\GetFilterListController;
 use App\Http\Controllers\Mobile\V01\ScholarshipController;
 use App\Http\Controllers\Mobile\V01\UniversityController;
@@ -26,6 +27,8 @@ Route::prefix('universities')->group(function () {
     //specialize id
     Route::get('/scholarships/{id}',[ScholarshipController::class, 'index']);
     Route::get('/scholarship/detail/{id}',[ScholarshipController::class, 'show']); //scholarship id
+    Route::get('/events/{id}',[EventController::class,'index']);
+    Route::get('/event/detail/{id}',[EventController::class,'show']);
 });
 
 Route::prefix('getFilter')->group(function () {
@@ -34,3 +37,4 @@ Route::prefix('getFilter')->group(function () {
    Route::get('locations',[GetFilterListController::class,'getLocations']);
    Route::get('degrees',[GetFilterListController::class, 'getDegrees']);
 });
+
