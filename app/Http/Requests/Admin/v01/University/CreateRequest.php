@@ -19,9 +19,11 @@ class CreateRequest extends FormRequest
         {
             $rules = [
                 'name' => 'required|string',
+                'name_kh' => 'required|string',
                 'logo_image' => 'required|string',
                 'image' => 'required|string',
                 'description' => 'required|string',
+                'description_kh' => 'required|string',
                 'university_type_id' => 'required|integer',
                 'established_year' => 'required|integer',
                 'ranking' => 'required|integer',
@@ -56,6 +58,11 @@ class CreateRequest extends FormRequest
             return request()->name;
         }
 
+        public function getNameKh()
+        {
+            return request()->name_kh;
+        }
+
         public function getLogoImage()
         {
             return request()->logo_image;
@@ -88,6 +95,11 @@ class CreateRequest extends FormRequest
         public function getDescription()
         {
             return request()->description;
+        }
+
+        public function getDescriptionKh()
+        {
+            return request()->description_kh;
         }
 
         public function getUniversityTypeId()
@@ -128,6 +140,11 @@ class CreateRequest extends FormRequest
         public function getAddress()
         {
             return request()->address;
+        }
+
+        public function getAddressKh()
+        {
+            return request()->address_kh;
         }
 
         public function getProvinceId()
