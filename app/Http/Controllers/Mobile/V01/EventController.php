@@ -33,7 +33,7 @@ class EventController extends Controller
 
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Successfully');
-        $this->setResult('events', $eventsCollection);
+        $this->setResult('data', $eventsCollection);
         return $this->returnResults();
     }
 
@@ -44,7 +44,7 @@ class EventController extends Controller
 
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Successfully');
-        $this->setResult('events',EventDetailResource::make($vent));
+        $this->setResult('data',EventDetailResource::make($vent));
         return $this->returnResults();
     }
 }
