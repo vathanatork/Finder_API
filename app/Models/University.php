@@ -30,6 +30,10 @@ class University extends Model
         return $this->hasMany(Major::class, 'university_id');
     }
 
+    public function events(): HasMany
+    {
+        return $this->hasMany(Event::class,'university_id');
+    }
     public function degreeLevels(): BelongsToMany
     {
         return $this->belongsToMany(DegreeLevel::class, 'university_degree_levels')->wherePivotNull('deleted_at');
