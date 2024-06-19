@@ -35,7 +35,9 @@ class UniversityProgramController extends Controller
 
     public function getProgramDegreeLevel(string $id): \Illuminate\Http\JsonResponse
     {
-        $university = University::with(['degreeLevels',])->findOrFail($id);;
+        $university = University::with(['degreeLevels' => function ($query) {
+            $query->orderBy('degree_level_id', 'asc');
+        }])->findOrFail($id);
 
         $this->setCode(200);
         $this->setMessage("Success");
