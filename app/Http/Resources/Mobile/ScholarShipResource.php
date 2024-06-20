@@ -42,7 +42,8 @@ class ScholarShipResource extends JsonResource
             ($this->university->contact),
            'university' => [
                 'id' => $this->university ? $this->university->id : null,
-                'name'=>$this->university ? $this->university->name : null
+                'name'=>$this->university ? $this->university->name_en : null,
+                'name_kh' =>$this->university ? $this->university->name_kh : null,
             ],
             'image' => $this->image_url ? UrlHelper::resolveUrl($this->image_url,env('MINIO_BASE_URL',null)) : null
         ];
