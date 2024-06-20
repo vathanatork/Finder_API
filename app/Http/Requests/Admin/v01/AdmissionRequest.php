@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 class AdmissionRequest extends FormRequest
 {
+    protected string $tem_url = '';
     /**
      * Get the validation rules that apply to the request.
      *
@@ -83,6 +84,15 @@ class AdmissionRequest extends FormRequest
         return request()->admission_url;
     }
 
+    public function setAdmissionUrl($url): void
+    {
+        $this->tem_url = $url;
+    }
+
+    public function getAdmissionUrl(): string
+    {
+        return $this->tem_url;
+    }
     public function getContact()
     {
         return request()->contact_info_id ?: null;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\V01;
 
 use App\Constants\Enum\StatusCodeEnum;
 use App\Helpers\CoreBase;
+use App\Helpers\UrlHelper;
 use App\Http\Traits\ValidationFailTrait;
 use App\Service\MediaService;
 use Illuminate\Http\Request;
@@ -46,7 +47,8 @@ class EditorHandlerController extends Controller
 
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Successfully Upload');
-        $this->setResult('image_url',$image_url);
+        $this->setResult('image_url',UrlHelper::resolveUrl($image_url,env('MINIO_BASE_URL',
+            null)));
         return $this->returnResults();
     }
 
