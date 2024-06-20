@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name_en');
             $table->string('name_kh');
+            $table->string('image');
+            $table->string('logo');
             $table->integer('yearly_income');
             $table->unsignedBigInteger('common_degree_level');
             $table->decimal('job_growth_rate',5,2)->nullable();
