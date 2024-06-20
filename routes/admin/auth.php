@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\V01\AdmissionsController;
 use App\Http\Controllers\Admin\V01\AdrController;
 use App\Http\Controllers\Admin\V01\AuthController;
+use App\Http\Controllers\Admin\V01\CareerController;
 use App\Http\Controllers\Admin\V01\ContactInformationController;
 use App\Http\Controllers\Admin\V01\DegreeLevelController;
 use App\Http\Controllers\Admin\V01\DegreeLevelRelationController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Admin\V01\EventController;
 use App\Http\Controllers\Admin\V01\MajorAndSpecializeNameController;
 use App\Http\Controllers\Admin\V01\MajorController;
 use App\Http\Controllers\Admin\V01\ScholarshipController;
+use App\Http\Controllers\Admin\V01\TypeController;
 use App\Http\Controllers\Admin\V01\UniversityController;
 use App\Http\Controllers\Admin\V01\UniversityTypeController;
 use Illuminate\Support\Facades\Route;
@@ -113,3 +115,17 @@ Route::prefix('events')->group(function () {
     Route::delete('/{id}',[EventController::class,'destroy']);
 });
 
+Route::prefix('careers')->group(function () {
+    Route::prefix('types')->group(function () {
+        Route::get('',[TypeController::class,'index']);
+        Route::get('/{id}',[TypeController::class,'show']);
+        Route::post('',[TypeController::class,'create']);
+        Route::put('/{id}',[TypeController::class,'update']);
+    });
+
+    Route::get('',[CareerController::class,'index']);
+    Route::get('/{id}',[CareerController::class,'show']);
+    Route::post('',[CareerController::class,'create']);
+    Route::put('/{id}',[CareerController::class,'update']);
+    Route::delete('/{id}',[CareerController::class,'destroy']);
+});

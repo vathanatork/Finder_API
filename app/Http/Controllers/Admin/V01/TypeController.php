@@ -2,36 +2,37 @@
 
 namespace App\Http\Controllers\Admin\V01;
 
-use App\Constants\Enum\StatusCodeEnum;
-use App\Http\Requests\Admin\v01\EventCategoryRequest;
-use App\Http\Resources\Admin\EventCategoryResource;
-use App\Models\EventCategory;
 
-class EventCategoryController extends Controller
+use App\Constants\Enum\StatusCodeEnum;
+use App\Http\Requests\Admin\v01\TypeRequest;
+use App\Http\Resources\Admin\EventCategoryResource;
+use App\Models\Type;
+
+class TypeController extends Controller
 {
     public function index(): \Illuminate\Http\JsonResponse
     {
-        $eventCategories = EventCategory::get();
+        $types = Type::get();
 
         $this->setCode(StatusCodeEnum::OK);
-        $this->setMessage('Successfully');
-        $this->setResult('event_categories',EventCategoryResource::collection($eventCategories));
+        $this->setMessage('Successfully updated');
+        $this->setResult('types',EventCategoryResource::collection($types));
         return $this->returnResults();
     }
 
     public function show(string $id): \Illuminate\Http\JsonResponse
     {
-        $eventCategories = EventCategory::findOrFail($id);
+        $type = Type::findOrFail($id);
 
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Successfully');
-        $this->setResult('event_categories',EventCategoryResource::make($eventCategories));
+        $this->setResult('type',EventCategoryResource::make($type));
         return $this->returnResults();
     }
 
-    public function create(EventCategoryRequest $request): \Illuminate\Http\JsonResponse
+    public function create(TypeRequest $request): \Illuminate\Http\JsonResponse
     {
-        EventCategory::create([
+        Type::create([
             'name_en' => $request->getNameEn(),
             'name_kh' => $request->getNameKh(),
             'is_active' => $request->getIsActive() ?? 1
@@ -40,18 +41,18 @@ class EventCategoryController extends Controller
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Successfully created');
         return $this->returnResults();
-
     }
 
-    public function update(EventCategoryRequest $request,string $id): \Illuminate\Http\JsonResponse
+    public function update(TypeRequest $request,string $id): \Illuminate\Http\JsonResponse
     {
-        $eventCategory = EventCategory::findOrFail($id);
+        $type = Type::findOrFail($id);
 
         $updateData = $request->only('name_en','name_kh','is_active');
-        $eventCategory->update($updateData);
+        $type->update($updateData);
 
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Successfully updated');
         return $this->returnResults();
     }
+
 }
