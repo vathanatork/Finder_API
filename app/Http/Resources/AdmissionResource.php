@@ -36,7 +36,11 @@ class AdmissionResource extends JsonResource
                 'name' => $this->university ? $this->university->name_en : null,
                 'name_kh' => $this->university ? $this->university->name_kh : null
             ],
-                'contact' => $this->contact ? ContactResource::make($this->contact) : ($this->university->contact ? ContactResource::make($this->university->contact) : null),
+                'contact' => $this->contact ? ContactResource::make($this->contact) : (
+                $this->university ? (
+                $this->university->contact ? ContactResource::make($this->university->contact) : null
+                ) : null
+                ),
         ];
     }
 }
