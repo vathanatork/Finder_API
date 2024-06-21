@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static create(array $array)
  * @method static findOrFail(string $id)
  * @method static get()
+ * @method static where(string $string, int $int)
  */
 class EventCategory extends Model
 {
