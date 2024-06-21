@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static create(array $array)
  * @method static findOrFail(string $id)
  * @method static latest()
+ * @method static where(string $string, int $int)
  */
 class Event extends Model
 {
@@ -36,5 +37,17 @@ class Event extends Model
     public function scopeIsActive($query,$param)
     {
         return $query->where('is_active',$param);
+    }
+
+    public function scopeSearch($query, $params)
+    {
+        $search = strtolower($params);
+        return $query->whereRaw('LOWER(name_en) COLLATE utf8mb4_general_ci LIKE ?', ['%' . $search . '%'])
+            ->OrWhereRaw('LOWER(name_kh) COLLATE utf8mb4_general_ci LIKE ?', ['%' . $search . '%']);
+    }
+
+    public function scopeWhereCategory($query, $params)
+    {
+        return $query->where('event_category_id',$params);
     }
 }

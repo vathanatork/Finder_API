@@ -12,8 +12,6 @@ use App\Http\Traits\ValidationFailTrait;
 use App\Models\Career;
 use App\Models\Type;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
 
 class CareerController extends Controller
 {

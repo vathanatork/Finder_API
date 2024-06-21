@@ -6,6 +6,7 @@ use App\Http\Controllers\Mobile\V01\EventController;
 use App\Http\Controllers\Mobile\V01\GetFilterListController;
 use App\Http\Controllers\Mobile\V01\ScholarshipController;
 use App\Http\Controllers\Mobile\V01\UniversityController;
+use App\Http\Controllers\Mobile\V01\UniversityEventController;
 use App\Http\Controllers\Mobile\V01\UniversityProgramController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +29,8 @@ Route::prefix('universities')->group(function () {
     //specialize id
     Route::get('/scholarships/{id}',[ScholarshipController::class, 'index']);
     Route::get('/scholarship/detail/{id}',[ScholarshipController::class, 'show']); //scholarship id
-    Route::get('/events/{id}',[EventController::class,'index']);
-    Route::get('/event/detail/{id}',[EventController::class,'show']);
+    Route::get('/events/{id}',[UniversityEventController::class,'index']);
+    Route::get('/event/detail/{id}',[UniversityEventController::class,'show']);
 });
 
 Route::prefix('careers')->group(function () {
@@ -37,6 +38,12 @@ Route::prefix('careers')->group(function () {
     Route::get('',[CareerController::class,'index']);
     Route::get('/{id}',[CareerController::class,'show']);
 
+});
+
+Route::prefix('events')->group(function () {
+    Route::get('category',[EventController::class, 'category']);
+    Route::get('',[EventController::class,'index']);
+    Route::get('/{id}',[EventController::class,'show']);
 });
 
 Route::prefix('getFilter')->group(function () {
