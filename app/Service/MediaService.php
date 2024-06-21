@@ -15,67 +15,48 @@ class MediaService
 	 */
     public function uploadBase64($base64, string $dir = 'supplier'): ?string
     {
-        // Check if the input is a URL and return the path if it is.
-        if (CoreBase::isUrl($base64)) {
+
+        if (CoreBase::isUrl($base64))
+        {
             return str_replace(url('/') . '/', '', $base64);
         }
-
-        // Define allowed file types.
         $allowed = ['png', 'jpg', 'jpeg', 'pdf'];
-
-        // Extract the base64 encoded string from the input.
-        if (str_starts_with($base64, 'data:image') || str_starts_with($base64, 'data:application')) {
+        if (explode("/", $base64)[0] == "data:image") {
+            $base64 = explode(";base64,", $base64)[1];
+        }elseif (explode("/", $base64)[0] == "data:application") {
+            // If the base64 data represents a PDF, extract the PDF data.
             $base64 = explode(";base64,", $base64)[1];
         }
 
-        // Decode the base64 string.
         $data = base64_decode($base64);
-        if ($data === false) {
-            return null; // Invalid base64 data
+        $f = finfo_open();
+        $imageType = finfo_buffer($f, $data, FILEINFO_EXTENSION);
+        if (explode("/", $imageType)[0] == "jpeg") {
+            $imageType = "jpeg";
         }
 
-        $mimeType = null;
-        $imageInfo = getimagesizefromstring($data);
-        if ($imageInfo) {
-            $mimeType = $imageInfo['mime'];
+        if (!in_array($imageType, $allowed)) {
+            return null;
         }
 
-        // Map MIME types to file extensions.
-        $mimeToExtension = [
-            'image/png' => 'png',
-            'image/jpeg' => 'jpeg',
-            'image/jpg' => 'jpg',
-            'application/pdf' => 'pdf'
-        ];
 
-        // Get the file extension from the MIME type.
-        $imageType = $mimeToExtension[$mimeType] ?? null;
-        if (!$imageType || !in_array($imageType, $allowed)) {
-            return null; // Unsupported file type
-        }
-
-        // Generate a unique filename.
-        $filename = uniqid() . '-' . time() . '.' . $imageType;
-
+        $filename =   uniqid() . '-' . time() . '.' . $imageType;
         $dirSmallPath = 'uploads/';
+//        $dirSmallPath = 'uploads/'.$dir.'/' . date('Y') . '/' . date('m') . '/' . date('d') . '/';
 
-//        // Define the directory path.
-//        $dirSmallPath = 'uploads/' . $dir . '/' . date('Y') . '/' . date('m') . '/' . date('d') . '/';
-
-        // Create the directory if it doesn't exist.
         if (!is_dir(public_path($dirSmallPath))) {
-            if (!mkdir(public_path($dirSmallPath), 0755, true) && !is_dir(public_path($dirSmallPath))) {
-                return null; // Failed to create directory
-            }
+            @mkdir(public_path($dirSmallPath), 0755, true);
         }
 
-        // Define the full path for the file.
+
         $fullPath = $dirSmallPath . $filename;
 
         // Store the file using the 'uploads' disk configuration.
         Storage::disk(env('FILESYSTEM_DISK', 'local'))->put($fullPath, $data);
 
         return $fullPath;
+
+
     }
 
 
@@ -115,7 +96,6 @@ class MediaService
         Storage::disk('uploads')->put($fullPath, $data);
 
         return $fullPath;
-
     }
 
     public function uploadVideo($base64): string|null
