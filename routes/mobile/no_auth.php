@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Mobile\V01\AuthController;
+use App\Http\Controllers\Mobile\V01\CareerController;
 use App\Http\Controllers\Mobile\V01\EventController;
 use App\Http\Controllers\Mobile\V01\GetFilterListController;
 use App\Http\Controllers\Mobile\V01\ScholarshipController;
@@ -31,10 +32,19 @@ Route::prefix('universities')->group(function () {
     Route::get('/event/detail/{id}',[EventController::class,'show']);
 });
 
+Route::prefix('careers')->group(function () {
+    Route::get('/types',[CareerController::class,'type']);
+    Route::get('',[CareerController::class,'index']);
+    Route::get('/{id}',[CareerController::class,'show']);
+
+});
+
 Route::prefix('getFilter')->group(function () {
    Route::get('majors',[GetFilterListController::class, 'getMajors']);
    Route::get('types',[GetFilterListController::class, 'getTypes']);
    Route::get('locations',[GetFilterListController::class,'getLocations']);
    Route::get('degrees',[GetFilterListController::class, 'getDegrees']);
 });
+
+
 
