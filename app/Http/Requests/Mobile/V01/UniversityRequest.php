@@ -47,4 +47,9 @@ class UniversityRequest extends FormRequest
     {
         return request()->location;
     }
+
+    public function getCategory()
+    {
+        return request()->category;
+    }
 }

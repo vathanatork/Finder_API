@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Mobile\V01;
 
 use App\Constants\Enum\StatusCodeEnum;
+use App\Http\Requests\Mobile\V01\UniversityRequest;
 use App\Http\Resources\Admin\EventCategoryResource;
 use App\Http\Resources\Mobile\EventDetailResource;
 use App\Http\Resources\Mobile\EventResource;
@@ -25,18 +26,18 @@ class EventController extends Controller
         return $this->returnResults();
     }
 
-    public function index(Request $request): \Illuminate\Http\JsonResponse
+    public function index(UniversityRequest $request): \Illuminate\Http\JsonResponse
     {
         $events = Event::where('is_active',1)->latest();
 
-        if($request->has('search'))
+        if($request->getSearch())
         {
-            $events = $events->search($request->input('search'));
+            $events = $events->search($request->getSearch());
         }
 
-        if($request->has('category'))
+        if($request->getCategory())
         {
-            $events = $events->whereCategory($request->input('category'));
+            $events = $events->whereCategory($request->getCategory());
         }
 
         if($request->has('limit') && filter_var($request->input('limit'), FILTER_VALIDATE_INT)) {
