@@ -3,17 +3,31 @@
 namespace App\Http\Controllers\Admin\V01;
 
 use App\Constants\Enum\StatusCodeEnum;
+use App\Helpers\CoreBase;
 use App\Http\Requests\Admin\v01\MajorRequest;
 use App\Http\Resources\Admin\MajorResource;
 use App\Http\Traits\Mobile\PaginateTrait;
 use App\Models\Major;
 use App\Models\MajorDegreeLevel;
+use App\Service\MediaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class MajorController extends Controller
 {
     use PaginateTrait;
+
+    private MediaService $mediaService;
+
+    /**
+     * @param MediaService $mediaService
+     */
+    public function __construct(MediaService $mediaService)
+    {
+        parent::__construct();
+        $this->mediaService = $mediaService;
+    }
+
     public function index(Request $request): \Illuminate\Http\JsonResponse
     {
         $major = Major::latest();
@@ -53,6 +67,11 @@ class MajorController extends Controller
 
     public function create(MajorRequest $request): \Illuminate\Http\JsonResponse
     {
+        if ($request->getCurriculum() && (CoreBase::isBase64($request->getCurriculum()) || CoreBase::isUrl
+                ($request->getCurriculum()))) {
+            $request->setCurriculumUrl($this->mediaService->uploadBase64($request->getCurriculum(), "curriculum"));
+        }
+
         $major = Major::create([
             'department_id' => $request->getDepartmentId(),
             'institute_id' => $request->getInstituteId(),
@@ -85,7 +104,14 @@ class MajorController extends Controller
     public function update(MajorRequest $request,string $id): \Illuminate\Http\JsonResponse
     {
         $major = Major::findOrFail($id);
-        $updateData = $request->only('tuition','department_id','institute_id','university_id','major_name_id','description_en','description_kh','curriculum_url','is_active');
+        if ($request->getCurriculum() && (CoreBase::isBase64($request->getCurriculum()) || CoreBase::isUrl
+                ($request->getCurriculum()))) {
+            $request->setCurriculumUrl($this->mediaService->uploadBase64($request->getCurriculum(), "curriculum"));
+        }
+
+        $updateData = $request->only('tuition','department_id','institute_id','university_id','major_name_id','description_en','description_kh','is_active')
+        +['curriculum_url' => $request->getCurriculum() ? $request->getCurriculumUrl() : $major->curriculum_url];
+
         $major->update($updateData);
 
         if($request->getDegreeLevels())

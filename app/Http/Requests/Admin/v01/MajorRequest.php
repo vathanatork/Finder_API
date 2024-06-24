@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 class MajorRequest extends FormRequest
 {
+    protected string $url = '';
     /**
      * Get the validation rules that apply to the request.
      *
@@ -80,8 +81,18 @@ class MajorRequest extends FormRequest
         return request()->description_kh;
     }
 
-    public function getCurriculumUrl()
+    public function getCurriculum()
     {
         return request()->curriculum_url;
+    }
+
+    public function setCurriculumUrl($url): void
+    {
+        $this->url = $url;
+    }
+
+    public function getCurriculumUrl(): string
+    {
+        return $this->url;
     }
 }
