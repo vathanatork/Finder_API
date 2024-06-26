@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static create(array $array)
  * @method static latest()
  * @method static where(string $string, string $id)
+ * @method static count()
  */
 class Scholarship extends Model
 {

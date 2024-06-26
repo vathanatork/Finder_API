@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\V01\AdrController;
 use App\Http\Controllers\Admin\V01\AuthController;
 use App\Http\Controllers\Admin\V01\CareerController;
 use App\Http\Controllers\Admin\V01\ContactInformationController;
+use App\Http\Controllers\Admin\V01\DashboardController;
 use App\Http\Controllers\Admin\V01\DegreeLevelController;
 use App\Http\Controllers\Admin\V01\DegreeLevelRelationController;
 use App\Http\Controllers\Admin\V01\EditorHandlerController;
@@ -23,6 +24,10 @@ Route::prefix('auth/admin')->group(function () {
 });
 
 Route::post('/editor/upload_image',[EditorHandlerController::class,'uploadImage']);
+
+Route::prefix('dashboard')->group(function (){
+    Route::get('',[DashboardController::class,'index']);
+});
 
 Route::prefix('university_types')->group(function () {
     Route::post('',[UniversityTypeController::class,'create']);

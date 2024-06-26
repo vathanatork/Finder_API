@@ -19,6 +19,7 @@ class ContactRequest extends FormRequest
         $rules = [
             'name' => 'required|string',
             'address' => 'required|string',
+            'address_link' => 'required|string',
             'primary_phone_number' => 'required|string|between:8,10',
             'email' => 'required|email'
         ];
@@ -50,6 +51,10 @@ class ContactRequest extends FormRequest
         return request()->address;
     }
 
+    public function getAddressLink()
+    {
+        return request()->address_link;
+    }
     public function getPrimaryPhoneNumber()
     {
         return request()->primary_phone_number;

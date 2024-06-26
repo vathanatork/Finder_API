@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static find(string $id)
  * @method static findOrFail(string $id)
  * @method static isActive()
+ * @method static count()
  * @property mixed $name
  * @property mixed|true $is_active
  */

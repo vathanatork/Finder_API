@@ -55,6 +55,7 @@ class ContactInformationController extends Controller
         $contact = ContactInformation::create([
             'name' => $request->getName(),
             'address' => $request->getAddress(),
+            'address_link' => $request->getAddressLink(),
             'email' => $request->getEmail(),
             'primary_phone_number' => $request->getPrimaryPhoneNumber(),
             'second_phone_number' => $request->getSecondPhoneNumber() ?? null,
@@ -71,7 +72,8 @@ class ContactInformationController extends Controller
     public function update(ContactRequest $request, string $id): \Illuminate\Http\JsonResponse
     {
         $contact = ContactInformation::findOrFail($id);
-        $updateData = $request->only(['name','address','email','primary_phone_number','second_phone_number','third_phone_number','is_active']);
+        $updateData = $request->only(['name','address','address_link','email','primary_phone_number',
+        'second_phone_number','third_phone_number','is_active']);
         $contact->update($updateData);
 
         $this->setCode(StatusCodeEnum::OK);
