@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\V01\DegreeLevelRelationController;
 use App\Http\Controllers\Admin\V01\EditorHandlerController;
 use App\Http\Controllers\Admin\V01\EventCategoryController;
 use App\Http\Controllers\Admin\V01\EventController;
+use App\Http\Controllers\Admin\V01\FinancialAidController;
 use App\Http\Controllers\Admin\V01\MajorAndSpecializeNameController;
 use App\Http\Controllers\Admin\V01\MajorController;
 use App\Http\Controllers\Admin\V01\ScholarshipController;
@@ -133,4 +134,12 @@ Route::prefix('careers')->group(function () {
     Route::post('',[CareerController::class,'create']);
     Route::put('/{id}',[CareerController::class,'update']);
     Route::delete('/{id}',[CareerController::class,'destroy']);
+});
+
+Route::prefix('financial_aids')->group(function () {
+    Route::get('',[FinancialAidController::class,'index']);
+    Route::get('/{id}',[FinancialAidController::class,'show']);
+    Route::post('',[FinancialAidController::class,'create']);
+    Route::put('/{id}',[FinancialAidController::class,'update']);
+    Route::delete('/{id}',[FinancialAidController::class,'destroy']);
 });
