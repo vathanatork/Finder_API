@@ -17,6 +17,7 @@ class ContactInformationResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return $this->only('id', 'name','email','address','primary_phone_number','second_phone_number','third_phone_number','is_active');
+        return $this->only('id', 'name','email','address','address_link','primary_phone_number',
+            'second_phone_number','third_phone_number','is_active');
     }
 }

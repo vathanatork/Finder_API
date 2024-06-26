@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static findOrFail(string $id)
  * @method static get()
  * @method static where(string $string, int $int)
+ * @method static count()
  */
 class EventCategory extends Model
 {

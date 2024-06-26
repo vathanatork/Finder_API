@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static findOrFail(string $id)
  * @method static latest()
  * @method static where(string $string, int $int)
+ * @method static count()
  */
 class Career extends Model
 {

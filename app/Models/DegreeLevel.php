@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static latest()
  * @method static findOrFail(string $id)
  * @method static isActive()
+ * @method static count()
  */
 class DegreeLevel extends Model
 {

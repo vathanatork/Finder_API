@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static find($id)
  * @method static latest()
  * @method static findOrFail(string $id)
+ * @method static count()
  */
 class MajorAndSpecializeName extends Model
 {
