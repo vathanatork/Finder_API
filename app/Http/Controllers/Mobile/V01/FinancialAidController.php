@@ -41,7 +41,7 @@ class FinancialAidController extends Controller
     {
         $financial = FinancialAid::findOrFail($id);
         // Retrieve the latest financial aid record excluding the current one
-        $latest = FinancialAid::where('id', '!=', $id)->latest()->take(3)->get();
+        $latest = FinancialAid::where('id', '!=', $id)->where('is_active,1')->latest()->take(3)->get();
 
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Successfully');
