@@ -40,10 +40,13 @@ class FinancialAidController extends Controller
     public function show(string $id): \Illuminate\Http\JsonResponse
     {
         $financial = FinancialAid::findOrFail($id);
+        // Retrieve the latest financial aid record excluding the current one
+        $latest = FinancialAid::where('id', '!=', $id)->latest()->take(3)->get();
 
         $this->setCode(StatusCodeEnum::OK);
         $this->setMessage('Successfully');
         $this->setResult('data',FinancialAidDetailResource::make($financial));
+        $this->setResult('more_articles',FinancailAidResource::collection($latest));
         return $this->returnResults();
     }
 }
