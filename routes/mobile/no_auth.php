@@ -3,11 +3,13 @@
 use App\Http\Controllers\Mobile\V01\AuthController;
 use App\Http\Controllers\Mobile\V01\CareerController;
 use App\Http\Controllers\Mobile\V01\EventController;
+use App\Http\Controllers\Mobile\V01\FinancialAidController;
 use App\Http\Controllers\Mobile\V01\GetFilterListController;
 use App\Http\Controllers\Mobile\V01\ScholarshipController;
 use App\Http\Controllers\Mobile\V01\UniversityController;
 use App\Http\Controllers\Mobile\V01\UniversityEventController;
 use App\Http\Controllers\Mobile\V01\UniversityProgramController;
+use App\Models\FinancialAid;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth/user')->group(function () {
@@ -44,6 +46,11 @@ Route::prefix('events')->group(function () {
     Route::get('category',[EventController::class, 'category']);
     Route::get('',[EventController::class,'index']);
     Route::get('/{id}',[EventController::class,'show']);
+});
+
+Route::prefix('financial_aids')->group(function () {
+    Route::get('',[FinancialAidController::class,'index']);
+    Route::get('/{id}',[FinancialAidController::class,'show']);
 });
 
 Route::prefix('getFilter')->group(function () {
