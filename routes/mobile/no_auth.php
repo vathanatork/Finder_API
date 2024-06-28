@@ -35,6 +35,13 @@ Route::prefix('universities')->group(function () {
     Route::get('/event/detail/{id}',[UniversityEventController::class,'show']);
 });
 
+Route::prefix('getFilter')->group(function () {
+   Route::get('majors',[GetFilterListController::class, 'getMajors']);
+   Route::get('types',[GetFilterListController::class, 'getTypes']);
+   Route::get('locations',[GetFilterListController::class,'getLocations']);
+   Route::get('degrees',[GetFilterListController::class, 'getDegrees']);
+});
+
 Route::prefix('careers')->group(function () {
     Route::get('/types',[CareerController::class,'type']);
     Route::get('',[CareerController::class,'index']);
@@ -53,11 +60,9 @@ Route::prefix('financial_aids')->group(function () {
     Route::get('/{id}',[FinancialAidController::class,'show']);
 });
 
-Route::prefix('getFilter')->group(function () {
-   Route::get('majors',[GetFilterListController::class, 'getMajors']);
-   Route::get('types',[GetFilterListController::class, 'getTypes']);
-   Route::get('locations',[GetFilterListController::class,'getLocations']);
-   Route::get('degrees',[GetFilterListController::class, 'getDegrees']);
+Route::prefix('scholarships')->group(function () {
+    Route::get('',[ScholarshipController::class,'getList']);
+    Route::get('/{id}',[ScholarshipController::class,'show']);
 });
 
 
