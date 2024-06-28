@@ -58,6 +58,7 @@ Route::prefix('events')->group(function () {
 Route::prefix('financial_aids')->group(function () {
     Route::get('',[FinancialAidController::class,'index']);
     Route::get('/{id}',[FinancialAidController::class,'show']);
+    Route::get('more_articles/{id}',[FinancialAidController::class,'moreArticle']);
 });
 
 Route::prefix('scholarships')->group(function () {
