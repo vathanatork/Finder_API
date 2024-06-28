@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\V01\AdmissionsController;
 use App\Http\Controllers\Admin\V01\AdrController;
 use App\Http\Controllers\Admin\V01\AuthController;
 use App\Http\Controllers\Admin\V01\CareerController;
+use App\Http\Controllers\Admin\V01\CareerQuizController;
 use App\Http\Controllers\Admin\V01\ContactInformationController;
 use App\Http\Controllers\Admin\V01\DashboardController;
 use App\Http\Controllers\Admin\V01\DegreeLevelController;
@@ -142,4 +143,8 @@ Route::prefix('financial_aids')->group(function () {
     Route::post('',[FinancialAidController::class,'create']);
     Route::put('/{id}',[FinancialAidController::class,'update']);
     Route::delete('/{id}',[FinancialAidController::class,'destroy']);
+});
+
+Route::prefix('career_quiz')->group(function () {
+    Route::post('',[CareerQuizController::class,'create']);
 });
