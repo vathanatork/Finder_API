@@ -12,11 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('universities', function (Blueprint $table) {
-            $table->renameColumn('name', 'name_en');
+            $table->dropColumn('name');
+            $table->string('name_en');
             $table->string('name_kh')->nullable();
-            $table->renameColumn('description', 'description_en');
+            $table->dropColumn('description');
+            $table->string('description_en');
             $table->text('description_kh')->nullable();
-            $table->renameColumn('address','address_en');
+            $table->dropColumn('address');
+            $table->string('address_en');
             $table->string('address_kh')->nullable();
         });
     }

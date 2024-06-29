@@ -146,5 +146,9 @@ Route::prefix('financial_aids')->group(function () {
 });
 
 Route::prefix('career_quiz')->group(function () {
+    Route::get('',[CareerQuizController::class,'index']);
+    Route::get('/{id}',[CareerQuizController::class,'show']);
     Route::post('',[CareerQuizController::class,'create']);
+    Route::put('/{id}',[CareerQuizController::class,'update']);
+    Route::delete('/{id}',[CareerQuizController::class,'destroy']);
 });
