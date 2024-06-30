@@ -8,6 +8,7 @@ use App\Http\Resources\Admin\CareerQuizResource;
 use App\Http\Traits\Mobile\PaginateTrait;
 use App\Models\Question;
 use App\Models\QuestionCareerMapping;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -15,7 +16,7 @@ class CareerQuizController extends Controller
 {
     use PaginateTrait;
 
-    public function index(Request $request): \Illuminate\Http\JsonResponse
+    public function index(Request $request): JsonResponse
     {
         $questions = Question::with('questionCareerMapping')->latest();
 
@@ -23,15 +24,15 @@ class CareerQuizController extends Controller
             'is_active' => 'sometimes|boolean'
         ]);
 
-        if(!$validator->fails() && $request->has('is_active')) {
+        if (!$validator->fails() && $request->has('is_active')) {
             $questions = $questions->isActive($request->input('is_active'));
         }
 
-        if($request->has('limit') && filter_var($request->input('limit'), FILTER_VALIDATE_INT)) {
+        if ($request->has('limit') && filter_var($request->input('limit'), FILTER_VALIDATE_INT)) {
             $questions = $questions->paginate($request->input('limit'));
-            $this->setResult('paginate',$this->_paginate($questions));
-        }else{
-            $questions =$questions->get();
+            $this->setResult('paginate', $this->_paginate($questions));
+        } else {
+            $questions = $questions->get();
         }
 
         $this->setCode(StatusCodeEnum::OK);
@@ -40,7 +41,7 @@ class CareerQuizController extends Controller
         return $this->returnResults();
     }
 
-    public function show($id): \Illuminate\Http\JsonResponse
+    public function show($id): JsonResponse
     {
         $question = Question::with('questionCareerMapping')->findOrFail($id);
 
@@ -51,7 +52,7 @@ class CareerQuizController extends Controller
     }
 
     //create question and mapping career for each question and putting weight
-    public function create(CareerQuizRequest $request): \Illuminate\Http\JsonResponse
+    public function create(CareerQuizRequest $request): JsonResponse
     {
         $question = Question::create([
             'question_text_en' => $request->getQuestionTextEn(),
@@ -73,14 +74,13 @@ class CareerQuizController extends Controller
     }
 
     //update question and mapping career for each question and putting weight
-    public function update(CareerQuizRequest $request, $id): \Illuminate\Http\JsonResponse
+    public function update(CareerQuizRequest $request, $id): JsonResponse
     {
         $question = Question::findOrFail($id);
-        $updateData = $request->only('question_text_en','question_text_kh','is_active');
+        $updateData = $request->only('question_text_en', 'question_text_kh', 'is_active');
         $question->update($updateData);
 
-        if($request->getQuestionCareerMapping())
-        {
+        if ($request->getQuestionCareerMapping()) {
             QuestionCareerMapping::where('question_id', $id)->delete();
             foreach ($request->getQuestionCareerMapping() as $item) {
                 QuestionCareerMapping::create([
@@ -97,7 +97,7 @@ class CareerQuizController extends Controller
         return $this->returnResults();
     }
 
-    public function destroy($id): \Illuminate\Http\JsonResponse
+    public function destroy($id): JsonResponse
     {
         $question = Question::findOrFail($id);
         $question->delete();
