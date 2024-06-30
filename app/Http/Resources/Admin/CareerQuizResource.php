@@ -18,8 +18,10 @@ class CareerQuizResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return $this->only('id', 'question_text_kh', 'question_text_en','is_active') + [
-                'question_career_mapping' => $this->questionCareerMapping->map(function ($mapping) {
+        return $this->only('id', 'question_text_kh', 'question_text_en', 'is_active') + [
+                'question_career_mapping' => $this->questionCareerMapping->filter(function ($mapping) {
+                    return $mapping->career !== null;
+                })->map(function ($mapping) {
                     return [
                         'career_id' => $mapping->career_id,
                         'career_name_en' => $mapping->career->name_en,

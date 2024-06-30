@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @method static create(array $array)
@@ -17,14 +18,14 @@ class QuestionCareerMapping extends Model
 
     protected $guarded = ['id'];
 
-    public function career(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function career(): BelongsTo
     {
-        return $this->belongsTo(Career::class, 'career_id');
+        return $this->belongsTo(Career::class, 'career_id')->whereNull('deleted_at');
     }
 
-    public function question(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function question(): BelongsTo
     {
-        return $this->belongsTo(Question::class, 'question_id',);
+        return $this->belongsTo(Question::class, 'question_id')->whereNull('deleted_at');
     }
 
     public function scopeActive($query)
@@ -32,7 +33,7 @@ class QuestionCareerMapping extends Model
         return $query->where('is_active', 1);
     }
 
-    public function scopeInactive($query,$param)
+    public function scopeInactive($query, $param)
     {
         return $query->where('is_active', $param);
     }
